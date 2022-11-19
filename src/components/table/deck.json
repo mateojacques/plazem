@@ -1,0 +1,252 @@
+[
+    {
+        "id": 1,
+        "name": "Turtle",
+        "image": "/static/media/turtle_card.3e9bae81c7af483ff0be.png"
+    },
+    {
+        "id": 8,
+        "name": "Crocodile",
+        "image": "/static/media/crocodile_card.f0f592ff1bccacf1dc73.png"
+    },
+    {
+        "id": 9,
+        "name": "Flamingo",
+        "image": "/static/media/flamingo_card.d10ca5790891df092d2a.png"
+    },
+    {
+        "id": 5,
+        "name": "Spider",
+        "image": "/static/media/spider_card.354b33e063981b2e458b.png"
+    },
+    {
+        "id": 8,
+        "name": "Crocodile",
+        "image": "/static/media/crocodile_card.f0f592ff1bccacf1dc73.png"
+    },
+    {
+        "id": 1,
+        "name": "Turtle",
+        "image": "/static/media/turtle_card.3e9bae81c7af483ff0be.png"
+    },
+    {
+        "id": 4,
+        "name": "Fox",
+        "image": "/static/media/fox_card.b9ed7f8791305ec87cf2.png"
+    },
+    {
+        "id": 6,
+        "name": "Giraffe",
+        "image": "/static/media/giraffe_card.014f2ecc72ba5fcd1652.png"
+    },
+    {
+        "id": 2,
+        "name": "Butterfly",
+        "image": "/static/media/butterfly_card.1dd306cce5350e1ce271.png"
+    },
+    {
+        "id": 2,
+        "name": "Butterfly",
+        "image": "/static/media/butterfly_card.1dd306cce5350e1ce271.png"
+    },
+    {
+        "id": 7,
+        "name": "Parrot",
+        "image": "/static/media/parrot_card.743bce1f030f6795b61e.png"
+    },
+    {
+        "id": 10,
+        "name": "Monkey",
+        "image": "/static/media/monkey_card.01ca0084dc5de5012e18.png"
+    },
+    {
+        "id": 5,
+        "name": "Spider",
+        "image": "/static/media/spider_card.354b33e063981b2e458b.png"
+    },
+    {
+        "id": 7,
+        "name": "Parrot",
+        "image": "/static/media/parrot_card.743bce1f030f6795b61e.png"
+    },
+    {
+        "id": 1,
+        "name": "Turtle",
+        "image": "/static/media/turtle_card.3e9bae81c7af483ff0be.png"
+    },
+    {
+        "id": 5,
+        "name": "Spider",
+        "image": "/static/media/spider_card.354b33e063981b2e458b.png"
+    },
+    {
+        "id": 8,
+        "name": "Crocodile",
+        "image": "/static/media/crocodile_card.f0f592ff1bccacf1dc73.png"
+    },
+    {
+        "id": 9,
+        "name": "Flamingo",
+        "image": "/static/media/flamingo_card.d10ca5790891df092d2a.png"
+    },
+    {
+        "id": 6,
+        "name": "Giraffe",
+        "image": "/static/media/giraffe_card.014f2ecc72ba5fcd1652.png"
+    },
+    {
+        "id": 10,
+        "name": "Monkey",
+        "image": "/static/media/monkey_card.01ca0084dc5de5012e18.png"
+    },
+    {
+        "id": 9,
+        "name": "Flamingo",
+        "image": "/static/media/flamingo_card.d10ca5790891df092d2a.png"
+    },
+    {
+        "id": 3,
+        "name": "Lion",
+        "image": "/static/media/lion_card.7d8e00330daf7eeebf18.png"
+    },
+    {
+        "id": 9,
+        "name": "Flamingo",
+        "image": "/static/media/flamingo_card.d10ca5790891df092d2a.png"
+    },
+    {
+        "id": 8,
+        "name": "Crocodile",
+        "image": "/static/media/crocodile_card.f0f592ff1bccacf1dc73.png"
+    },
+    {
+        "id": 10,
+        "name": "Monkey",
+        "image": "/static/media/monkey_card.01ca0084dc5de5012e18.png"
+    },
+    {
+        "id": 7,
+        "name": "Parrot",
+        "image": "/static/media/parrot_card.743bce1f030f6795b61e.png"
+    },
+    {
+        "id": 3,
+        "name": "Lion",
+        "image": "/static/media/lion_card.7d8e00330daf7eeebf18.png"
+    },
+    {
+        "id": 4,
+        "name": "Fox",
+        "image": "/static/media/fox_card.b9ed7f8791305ec87cf2.png"
+    },
+    {
+        "id": 5,
+        "name": "Spider",
+        "image": "/static/media/spider_card.354b33e063981b2e458b.png"
+    },
+    {
+        "id": 3,
+        "name": "Lion",
+        "image": "/static/media/lion_card.7d8e00330daf7eeebf18.png"
+    },
+    {
+        "id": 7,
+        "name": "Parrot",
+        "image": "/static/media/parrot_card.743bce1f030f6795b61e.png"
+    },
+    {
+        "id": 6,
+        "name": "Giraffe",
+        "image": "/static/media/giraffe_card.014f2ecc72ba5fcd1652.png"
+    },
+    {
+        "id": 5,
+        "name": "Spider",
+        "image": "/static/media/spider_card.354b33e063981b2e458b.png"
+    },
+    {
+        "id": 9,
+        "name": "Flamingo",
+        "image": "/static/media/flamingo_card.d10ca5790891df092d2a.png"
+    },
+    {
+        "id": 3,
+        "name": "Lion",
+        "image": "/static/media/lion_card.7d8e00330daf7eeebf18.png"
+    },
+    {
+        "id": 6,
+        "name": "Giraffe",
+        "image": "/static/media/giraffe_card.014f2ecc72ba5fcd1652.png"
+    },
+    {
+        "id": 4,
+        "name": "Fox",
+        "image": "/static/media/fox_card.b9ed7f8791305ec87cf2.png"
+    },
+    {
+        "id": 2,
+        "name": "Butterfly",
+        "image": "/static/media/butterfly_card.1dd306cce5350e1ce271.png"
+    },
+    {
+        "id": 3,
+        "name": "Lion",
+        "image": "/static/media/lion_card.7d8e00330daf7eeebf18.png"
+    },
+    {
+        "id": 1,
+        "name": "Turtle",
+        "image": "/static/media/turtle_card.3e9bae81c7af483ff0be.png"
+    },
+    {
+        "id": 2,
+        "name": "Butterfly",
+        "image": "/static/media/butterfly_card.1dd306cce5350e1ce271.png"
+    },
+    {
+        "id": 10,
+        "name": "Monkey",
+        "image": "/static/media/monkey_card.01ca0084dc5de5012e18.png"
+    },
+    {
+        "id": 10,
+        "name": "Monkey",
+        "image": "/static/media/monkey_card.01ca0084dc5de5012e18.png"
+    },
+    {
+        "id": 8,
+        "name": "Crocodile",
+        "image": "/static/media/crocodile_card.f0f592ff1bccacf1dc73.png"
+    },
+    {
+        "id": 2,
+        "name": "Butterfly",
+        "image": "/static/media/butterfly_card.1dd306cce5350e1ce271.png"
+    },
+    {
+        "id": 6,
+        "name": "Giraffe",
+        "image": "/static/media/giraffe_card.014f2ecc72ba5fcd1652.png"
+    },
+    {
+        "id": 7,
+        "name": "Parrot",
+        "image": "/static/media/parrot_card.743bce1f030f6795b61e.png"
+    },
+    {
+        "id": 4,
+        "name": "Fox",
+        "image": "/static/media/fox_card.b9ed7f8791305ec87cf2.png"
+    },
+    {
+        "id": 4,
+        "name": "Fox",
+        "image": "/static/media/fox_card.b9ed7f8791305ec87cf2.png"
+    },
+    {
+        "id": 1,
+        "name": "Turtle",
+        "image": "/static/media/turtle_card.3e9bae81c7af483ff0be.png"
+    }
+]

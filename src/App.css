@@ -6,8 +6,8 @@
 }
 
 :root{
-  --card-width: 211px; /* 245px */
-  --card-height: 290px; /* 337px */
+  --card-width: 211px;
+  --card-height: 290px;
 }
 
 .app-container{
@@ -15,4 +15,11 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+}
+
+@media  screen and (max-width: 1400px) {
+  :root{
+    --card-width: 130px;
+    --card-height: 180px;
+  }
 }

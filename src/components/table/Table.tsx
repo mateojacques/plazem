@@ -21,6 +21,7 @@ interface ICurrentCard {
 const Table = () => {
   const [deck, setDeck] = useState(generateMainDeck());
   const [currentCard, setCurrentCard] = useState<ICurrentCard>(deck[0]);
+  const [sideDeckLength, setSideDeckLength] = useState<number>(0);
   const {
     validateCardRow,
     isFinished,
@@ -36,6 +37,8 @@ const Table = () => {
     deathDeck,
     sideDeck,
     sideCard,
+    updateSideDeck,
+    onClickBoardKey,
   } = useContext(TableContext);
   const cardElement = useRef(null as any);
   const playedCardsElement = useRef(null as any);
@@ -58,13 +61,16 @@ const Table = () => {
     }
 
     if (isSided) {
-      cardElement.current.classList.add(styles.card_move_left);
-      sideCard(currentCard);
-      setTimeout(() => {
-        if (cardElement.current) {
-          cardElement.current.classList.remove(styles.card_move_left);
-        }
-      }, 100);
+      if (round < CARD_AMOUNT - 1) {
+        cardElement.current.classList.add(styles.card_move_left);
+        sideCard(currentCard);
+        setSideDeckLength(sideDeckLength + 1);
+        setTimeout(() => {
+          if (cardElement.current) {
+            cardElement.current.classList.remove(styles.card_move_left);
+          }
+        }, 100);
+      }
       return;
     }
 
@@ -120,12 +126,15 @@ const Table = () => {
       }
 
       if (!isFinished) {
-        // al presionar S enviar al side deck
         setRound(round + 1);
         cardTransition(key.toLowerCase());
 
         if (round < CARD_AMOUNT - 1) {
           setCurrentCard(deck[round + 1]);
+        } else if (round < CARD_AMOUNT - 1 + sideDeckLength) {
+          setCurrentCard(sideDeck.reverse()[round - (CARD_AMOUNT - 1)]);
+          const updatedSideDeck = sideDeck.slice(0, sideDeck.length - 1);
+          updateSideDeck(updatedSideDeck);
         } else finishGame("Felicidades! No quedan más cartas.");
       }
     }
@@ -152,12 +161,17 @@ const Table = () => {
       {!isFinished && currentCard && (
         <>
           <div className={styles.table__column}>
-            <h1 className={styles.table__key}>S</h1>
+            <button
+              onClick={() => onClickBoardKey("s")}
+              className={styles.table__key}
+            >
+              <h1>S</h1>
+            </button>
             {sideDeck.length > 0 && sideDeck[cardAmount.s - 1] ? (
               <img
                 src={sideDeck[cardAmount.s - 1].image}
                 alt={sideDeck[cardAmount.s - 1].name}
-                className={styles.mainDeck__dead_card}
+                className={styles.mainDeck__side_card}
               />
             ) : (
               <img
@@ -174,7 +188,12 @@ const Table = () => {
             ref={cardElement}
           />
           <div className={styles.table__column}>
-            <h1 className={styles.table__key}>F</h1>
+            <button
+              onClick={() => onClickBoardKey("f")}
+              className={styles.table__key}
+            >
+              <h1>F</h1>
+            </button>
             {deathDeck.length > 0 && deathDeck[cardAmount.f - 1] ? (
               <img
                 src={deathDeck[cardAmount.f - 1].image}

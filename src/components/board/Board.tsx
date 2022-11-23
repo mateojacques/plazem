@@ -6,7 +6,7 @@ import { TableContext } from "../../contexts/tableContext";
 import EndgameScreen from "../../screens/EndgameScreen";
 
 const Board = () => {
-  const { saveBoard, board, isFinished }: any = useContext(TableContext);
+  const { saveBoard, board, isFinished, onClickBoardKey }: any = useContext(TableContext);
   const currentBoard = generateBoard();
 
   const cardRefs = [
@@ -22,23 +22,23 @@ const Board = () => {
   }, [currentBoard]);
 
   return (
-    <section className={styles.board}>
-      {!isFinished ? (
-        board.map(({ id, name, image }: any, i: number) => (
-          <div key={id} className={styles.board__column}>
-            <h1 className={styles.board__key}>{KEYS[i]}</h1>
-            <img
-              src={image}
-              alt={name}
-              className={styles.board__card}
-              ref={cardRefs[i]}
-            />
-          </div>
-        ))
-      ) : (
-        <EndgameScreen />
-      )}
-    </section>
+      <section className={styles.board}>
+        {!isFinished ? (
+          board.map(({ id, name, image }: any, i: number) => (
+            <div key={id} className={styles.board__column}>
+              <button onClick={() => onClickBoardKey(KEYS[i])} className={styles.board__key}><h1>{KEYS[i]}</h1></button>
+              <img
+                src={image}
+                alt={name}
+                className={styles.board__card}
+                ref={cardRefs[i]}
+              />
+            </div>
+          ))
+        ) : (
+          <EndgameScreen />
+        )}
+      </section>
   );
 };
 

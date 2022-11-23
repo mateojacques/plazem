@@ -22,6 +22,8 @@ interface ITableContext {
   startTimer: Function;
   killCard: Function;
   sideCard: Function;
+  updateSideDeck: Function;
+  onClickBoardKey: Function;
 }
 
 interface ICardAmount {
@@ -93,6 +95,7 @@ const TableProvider = ({ children }: any) => {
     setDeck(generateMainDeck());
     setTime("0.0");
     setDeathDeck([]);
+    setSideDeck([]);
     setEndMessage("");
 
     const playedCards = document.querySelectorAll(".played_card");
@@ -128,6 +131,15 @@ const TableProvider = ({ children }: any) => {
     });
   };
 
+  const updateSideDeck = (updatedSideDeck: any) => setSideDeck(updatedSideDeck);
+
+  const onClickBoardKey = (key: string) =>
+    document.dispatchEvent(
+      new KeyboardEvent("keydown", {
+        key,
+      })
+    );
+
   useEffect(() => {
     updateTimer();
     return updateTimer(true);
@@ -154,6 +166,8 @@ const TableProvider = ({ children }: any) => {
         startTimer,
         killCard,
         sideCard,
+        updateSideDeck,
+        onClickBoardKey
       }}
     >
       {children}

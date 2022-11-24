@@ -10,7 +10,6 @@ import flamingoCard from "../images/cards/flamingo_card.png";
 import monkeyCard from "../images/cards/monkey_card.png";
 import deathCardBoard from "../images/cards/death_card_board.png";
 import deathCardZone from "../images/cards/death_card_zone.png";
-import sideCard from "../images/cards/side_card.png";
 
 export const PLAYABLE_CARDS = [
   {
@@ -77,13 +76,7 @@ export const DEATH_CARD_ZONE = {
   image: deathCardZone,
 };
 
-export const SIDE_CARD = {
-  id: 11,
-  name: "Side",
-  image: sideCard,
-};
-
-export const KEYS = ["q", "w", "e", "r", "t", "s", "f"];
+export const KEYS = ["q", "w", "e", "r", "t", "f"];
 
 export interface IKeysRows {
   q: number;

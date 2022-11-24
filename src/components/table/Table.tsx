@@ -9,7 +9,6 @@ import {
   IKeysRows,
   KEYS,
   KEYS_ROWS,
-  SIDE_CARD,
 } from "../../utils/constants";
 
 interface ICurrentCard {
@@ -21,7 +20,6 @@ interface ICurrentCard {
 const Table = () => {
   const [deck, setDeck] = useState(generateMainDeck());
   const [currentCard, setCurrentCard] = useState<ICurrentCard>(deck[0]);
-  const [sideDeckLength, setSideDeckLength] = useState<number>(0);
   const {
     validateCardRow,
     isFinished,
@@ -35,9 +33,6 @@ const Table = () => {
     startTimer,
     killCard,
     deathDeck,
-    sideDeck,
-    sideCard,
-    updateSideDeck,
     onClickBoardKey,
   } = useContext(TableContext);
   const cardElement = useRef(null as any);
@@ -45,7 +40,6 @@ const Table = () => {
 
   const cardTransition = (key: string) => {
     const isDiscarded = key === "f";
-    const isSided = key === "s";
     const isInBoard =
       board.filter(({ id }: any) => id === currentCard.id).length > 0;
     if (isDiscarded) {
@@ -58,20 +52,6 @@ const Table = () => {
         cardElement.current.classList.add(styles.card_move_right);
         killCard(currentCard);
       }
-    }
-
-    if (isSided) {
-      if (round < CARD_AMOUNT - 1) {
-        cardElement.current.classList.add(styles.card_move_left);
-        sideCard(currentCard);
-        setSideDeckLength(sideDeckLength + 1);
-        setTimeout(() => {
-          if (cardElement.current) {
-            cardElement.current.classList.remove(styles.card_move_left);
-          }
-        }, 100);
-      }
-      return;
     }
 
     if (!isDiscarded && validateCardRow(key, currentCard)) {
@@ -131,10 +111,6 @@ const Table = () => {
 
         if (round < CARD_AMOUNT - 1) {
           setCurrentCard(deck[round + 1]);
-        } else if (round < CARD_AMOUNT - 1 + sideDeckLength) {
-          setCurrentCard(sideDeck.reverse()[round - (CARD_AMOUNT - 1)]);
-          const updatedSideDeck = sideDeck.slice(0, sideDeck.length - 1);
-          updateSideDeck(updatedSideDeck);
         } else finishGame("Felicidades! No quedan más cartas.");
       }
     }
@@ -161,25 +137,7 @@ const Table = () => {
       {!isFinished && currentCard && (
         <>
           <div className={styles.table__column}>
-            <button
-              onClick={() => onClickBoardKey("s")}
-              className={styles.table__key}
-            >
-              <h1>S</h1>
-            </button>
-            {sideDeck.length > 0 && sideDeck[cardAmount.s - 1] ? (
-              <img
-                src={sideDeck[cardAmount.s - 1].image}
-                alt={sideDeck[cardAmount.s - 1].name}
-                className={styles.mainDeck__side_card}
-              />
-            ) : (
-              <img
-                src={SIDE_CARD.image}
-                alt={SIDE_CARD.name}
-                className={styles.mainDeck__side_card}
-              />
-            )}
+            {/* TODO ver que va acá */}
           </div>
           <img
             src={currentCard.image}

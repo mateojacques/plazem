@@ -13,7 +13,6 @@ interface ITableContext {
   cardAmount: any;
   time: string;
   deathDeck: any[];
-  sideDeck: any[];
   setRound: Function;
   saveBoard: Function;
   validateCardRow: Function;
@@ -21,8 +20,6 @@ interface ITableContext {
   restartGame: Function;
   startTimer: Function;
   killCard: Function;
-  sideCard: Function;
-  updateSideDeck: Function;
   onClickBoardKey: Function;
 }
 
@@ -33,7 +30,6 @@ interface ICardAmount {
   r: number;
   t: number;
   f: number;
-  s: number;
 }
 
 export const TableContext = createContext({} as ITableContext);
@@ -45,7 +41,6 @@ const defaultCardAmounts = {
   r: 0,
   t: 0,
   f: 0,
-  s: 0,
 };
 
 const TableProvider = ({ children }: any) => {
@@ -53,7 +48,6 @@ const TableProvider = ({ children }: any) => {
   const [round, setRound] = useState<number>(0);
   const [board, setBoard] = useState<any>([]);
   const [deathDeck, setDeathDeck] = useState<any>([]);
-  const [sideDeck, setSideDeck] = useState<any>([]);
   const [refs, setRefs] = useState<any[]>([]);
   const [isFinished, setIsFinished] = useState<boolean>(false);
   const [endMessage, setEndMessage] = useState<string>("");
@@ -95,7 +89,6 @@ const TableProvider = ({ children }: any) => {
     setDeck(generateMainDeck());
     setTime("0.0");
     setDeathDeck([]);
-    setSideDeck([]);
     setEndMessage("");
 
     const playedCards = document.querySelectorAll(".played_card");
@@ -123,16 +116,6 @@ const TableProvider = ({ children }: any) => {
     });
   };
 
-  const sideCard = (card: any) => {
-    setSideDeck([...sideDeck, card]);
-    setCardAmount({
-      ...cardAmount,
-      s: cardAmount["s"] + 1,
-    });
-  };
-
-  const updateSideDeck = (updatedSideDeck: any) => setSideDeck(updatedSideDeck);
-
   const onClickBoardKey = (key: string) =>
     document.dispatchEvent(
       new KeyboardEvent("keydown", {
@@ -157,7 +140,6 @@ const TableProvider = ({ children }: any) => {
         cardAmount,
         time,
         deathDeck,
-        sideDeck,
         setRound,
         saveBoard,
         validateCardRow,
@@ -165,8 +147,6 @@ const TableProvider = ({ children }: any) => {
         restartGame,
         startTimer,
         killCard,
-        sideCard,
-        updateSideDeck,
         onClickBoardKey
       }}
     >

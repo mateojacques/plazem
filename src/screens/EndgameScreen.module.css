@@ -1,0 +1,19 @@
+.endgame_screen {
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    place-items: center;
+    gap: 2rem;
+}
+
+.endgame_screen > p {
+    font-size: 1.2rem;
+}
+
+.endgame_screen > .endgame_screen__key::after {
+    content: "Shift + R";
+    display: inline-block;
+    margin-top: 10px;
+    color: #999;
+    transform: translateX(-6px);
+}

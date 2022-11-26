@@ -26,7 +26,7 @@ const Board = () => {
         {!isFinished ? (
           board.map(({ id, name, image }: any, i: number) => (
             <div key={id} className={styles.board__column}>
-              <button onClick={() => onClickBoardKey(KEYS[i])} className={styles.board__key}><h1>{KEYS[i]}</h1></button>
+              <button onClick={() => onClickBoardKey(KEYS[i])} className="key"><h1>{KEYS[i]}</h1></button>
               <img
                 src={image}
                 alt={name}

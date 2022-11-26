@@ -16,20 +16,6 @@
   transform: translateY(calc(var(--card-height) * var(--card-offset-y)));
 }
 
-.table__key {
-  width: var(--key-size);
-  height: var(--key-size);
-  line-height: var(--key-size);
-  border-radius: 10px;
-  background-color: #f2f1f1;
-  box-shadow: 4px 4px 4px 0px #00000040;
-  display: flex;
-  place-content: center;
-  cursor: pointer;
-  text-transform: uppercase;
-  border: none;
-}
-
 .mainDeck__card {
   width: var(--card-width);
   height: var(--card-height);

@@ -116,10 +116,11 @@ const TableProvider = ({ children }: any) => {
     });
   };
 
-  const onClickBoardKey = (key: string) =>
+  const onClickBoardKey = (key: string, shift = false) =>
     document.dispatchEvent(
       new KeyboardEvent("keydown", {
         key,
+        shiftKey: shift
       })
     );
 

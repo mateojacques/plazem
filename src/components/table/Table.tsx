@@ -45,7 +45,7 @@ const Table = () => {
     if (isDiscarded) {
       if (isInBoard) {
         finishGame(
-          "La carta descartada se encontraba en el tablero. Presiona Shift + R para reiniciar."
+          "La carta descartada se encontraba en el tablero."
         );
         return;
       } else {
@@ -78,7 +78,7 @@ const Table = () => {
       playedCardsElement.current.appendChild(cardClone);
     }
     if (!isDiscarded && !validateCardRow(key, currentCard)) {
-      finishGame("Movimiento inválido. Presiona Shift + R para reiniciar.");
+      finishGame("Movimiento inválido.");
       return;
     }
 
@@ -148,7 +148,7 @@ const Table = () => {
           <div className={styles.table__column}>
             <button
               onClick={() => onClickBoardKey("f")}
-              className={styles.table__key}
+              className="key"
             >
               <h1>F</h1>
             </button>

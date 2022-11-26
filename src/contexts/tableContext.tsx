@@ -1,5 +1,10 @@
-import { createContext, EffectCallback, useEffect, useState } from "react";
-import { IKeysRows, KEYS_ROWS } from "../utils/constants";
+import { createContext, useEffect, useState } from "react";
+import {
+  IKeysRows,
+  ITranslations,
+  KEYS_ROWS,
+  TRANSLATIONS,
+} from "../utils/constants";
 import { generateBoard, generateMainDeck } from "../utils/deck";
 import { Timer } from "timer-node";
 
@@ -13,6 +18,7 @@ interface ITableContext {
   cardAmount: any;
   time: string;
   deathDeck: any[];
+  translation: any;
   setRound: Function;
   saveBoard: Function;
   validateCardRow: Function;
@@ -21,6 +27,7 @@ interface ITableContext {
   startTimer: Function;
   killCard: Function;
   onClickBoardKey: Function;
+  changeLanguage: Function;
 }
 
 interface ICardAmount {
@@ -54,13 +61,14 @@ const TableProvider = ({ children }: any) => {
   const [cardAmount, setCardAmount] = useState<ICardAmount>(defaultCardAmounts);
   const [timer, setTimer] = useState(new Timer());
   const [time, setTime] = useState<string>("0.0");
+  const [translation, setTranslation] = useState(TRANSLATIONS.en);
 
   const saveBoard = (board: Array<object>, cardRefs: any[]) => {
     setBoard(board);
     setRefs(cardRefs);
   };
 
-  const validateCardRow = (keyPressed: any, card: any) => {    
+  const validateCardRow = (keyPressed: any, card: any) => {
     const index = KEYS_ROWS[keyPressed as keyof IKeysRows] - 1;
     if (board[index].id === card.id) {
       setScore(score + 1);
@@ -120,9 +128,12 @@ const TableProvider = ({ children }: any) => {
     document.dispatchEvent(
       new KeyboardEvent("keydown", {
         key,
-        shiftKey: shift
+        shiftKey: shift,
       })
     );
+
+  const changeLanguage = (code: keyof ITranslations) =>
+    setTranslation(TRANSLATIONS[code]);
 
   useEffect(() => {
     updateTimer();
@@ -141,6 +152,7 @@ const TableProvider = ({ children }: any) => {
         cardAmount,
         time,
         deathDeck,
+        translation,
         setRound,
         saveBoard,
         validateCardRow,
@@ -148,7 +160,8 @@ const TableProvider = ({ children }: any) => {
         restartGame,
         startTimer,
         killCard,
-        onClickBoardKey
+        onClickBoardKey,
+        changeLanguage
       }}
     >
       {children}

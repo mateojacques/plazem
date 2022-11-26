@@ -1,0 +1,18 @@
+.language_selection {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    display: flex;
+    gap: .7rem;
+    z-index: 101;
+}
+
+.language_selection > button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.language_selection > button:hover {
+    opacity: 0.9
+}

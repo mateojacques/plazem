@@ -34,6 +34,7 @@ const Table = () => {
     killCard,
     deathDeck,
     onClickBoardKey,
+    translation,
   } = useContext(TableContext);
   const cardElement = useRef(null as any);
   const playedCardsElement = useRef(null as any);
@@ -44,9 +45,7 @@ const Table = () => {
       board.filter(({ id }: any) => id === currentCard.id).length > 0;
     if (isDiscarded) {
       if (isInBoard) {
-        finishGame(
-          "La carta descartada se encontraba en el tablero."
-        );
+        finishGame(translation.discarded_card_in_board);
         return;
       } else {
         cardElement.current.classList.add(styles.card_move_right);
@@ -78,7 +77,7 @@ const Table = () => {
       playedCardsElement.current.appendChild(cardClone);
     }
     if (!isDiscarded && !validateCardRow(key, currentCard)) {
-      finishGame("Movimiento inválido.");
+      finishGame(translation.invalid_movement);
       return;
     }
 
@@ -111,7 +110,7 @@ const Table = () => {
 
         if (round < CARD_AMOUNT - 1) {
           setCurrentCard(deck[round + 1]);
-        } else finishGame("Felicidades! No quedan más cartas.");
+        } else finishGame(translation.victory);
       }
     }
   };
@@ -137,19 +136,18 @@ const Table = () => {
       {!isFinished && currentCard && (
         <>
           <div className={styles.table__column}>
-            {/* TODO ver que va acá */}
+            <h3 className={styles.table__remaining_cards}>
+              {deck.length - round}
+            </h3>
           </div>
           <img
             src={currentCard.image}
             alt={currentCard.name}
-            className={styles.mainDeck__card}
+            className={`${styles.mainDeck__card} deck`}
             ref={cardElement}
           />
           <div className={styles.table__column}>
-            <button
-              onClick={() => onClickBoardKey("f")}
-              className="key"
-            >
+            <button onClick={() => onClickBoardKey("f")} className="key">
               <h1>F</h1>
             </button>
             {deathDeck.length > 0 && deathDeck[cardAmount.f - 1] ? (

@@ -2,6 +2,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
   font-family: 'Inter', 'Lucida Sans', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
 }
 
@@ -9,6 +12,9 @@
   --card-width: 211px;
   --card-height: 290px;
   --key-size: 50px;
+
+  --primary-color: #fff;
+  --secondary-color: #B1EACB;
 }
 
 .app-container{
@@ -31,6 +37,24 @@
   cursor: pointer;
   text-transform: uppercase;
   border: none;
+}
+
+.open-tutorial{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.open-tutorial:hover{
+  color: var(--secondary-color);
+}
+
+.open-tutorial > span {
+  font-size: 2rem;
 }
 
 @media  screen and (max-width: 1400px) {

@@ -95,3 +95,67 @@ export const KEYS_ROWS: IKeysRows = {
 };
 
 export const CARD_AMOUNT: number = 50;
+
+export interface ITranslation {
+  tutorial_step1: string;
+  tutorial_step2: string;
+  tutorial_step3: string;
+  tutorial_step4: string;
+  tutorial_skip: string;
+  tutorial_end: string;
+  tutorial_back: string;
+  tutorial_next: string;
+  invalid_movement: string;
+  discarded_card_in_board: string;
+  victory: string;
+}
+
+export const ENGLISH_TRANSLATION: ITranslation = {
+  tutorial_step1:
+    "Welcome to Plazem! This is a game focused on speed and reflexes.",
+  tutorial_step2:
+    "This is the board. You will have to place the cards in your deck matching the ones in the columns.",
+  tutorial_step3:
+    "This is your deck. There are 50 cards in it, 5 for each type. You will have to place the cards that are in the board accordingly and discard (F key) the ones that don't.",
+  tutorial_step4:
+    "The goal is to place all 50 cards without mistakes in the least amount of time possible.",
+  tutorial_skip:
+    "Skip tutorial",
+  tutorial_end:
+    "End tutorial",
+  tutorial_back:
+    "Back",
+  tutorial_next:
+    "Next",
+  invalid_movement: "Invalid movement.",
+  discarded_card_in_board: "The card you discarded was in the board.",
+  victory: "Congratulations! There are no more cards in your deck.",
+};
+
+export const SPANISH_TRANSLATION: ITranslation = {
+  tutorial_step1:
+    "Bienvenido a Plazem! Este es un juego enfocado en la velocidad y los reflejos.",
+  tutorial_step2:
+    "Este es el tablero. Tendrás que colocar las cartas de tu mazo coincidiendo con las de las columnas.",
+  tutorial_step3:
+    "Este es tu mazo. En él hay 50 cartas, 5 por cada tipo. Deberás colocar las cartas que se encuentren en el tablero y descartar (tecla F) las que no.",
+  tutorial_step4:
+    "La meta es colocar todas las cartas sin errores en el menor tiempo posible.",
+  tutorial_skip: "Saltar tutorial",
+  tutorial_end: "Finalizar",
+  tutorial_back: "Atrás",
+  tutorial_next: "Siguiente",
+  invalid_movement: "Movimiento inválido.",
+  discarded_card_in_board: "La carta descartada se encontraba en el tablero.",
+  victory: "Felicidades! Ya no quedan más cartas en tu mazo.",
+};
+
+export interface ITranslations {
+  en: ITranslation;
+  es: ITranslation;
+}
+
+export const TRANSLATIONS: ITranslations = {
+  en: ENGLISH_TRANSLATION,
+  es: SPANISH_TRANSLATION,
+};

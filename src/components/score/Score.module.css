@@ -1,5 +1,6 @@
-.score{
-    font-size: 2.5rem;
+.score > h1{
+    font-size: 3rem;
+    font-weight: 300;
     text-align: center;
-    margin-top: 2rem;
+    margin-block: 2rem;
 }

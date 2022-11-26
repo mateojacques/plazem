@@ -22,7 +22,7 @@ const Board = () => {
   }, [currentBoard]);
 
   return (
-      <section className={styles.board}>
+      <section className={`${styles.board} board`}>
         {!isFinished ? (
           board.map(({ id, name, image }: any, i: number) => (
             <div key={id} className={styles.board__column}>

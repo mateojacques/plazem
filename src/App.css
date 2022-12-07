@@ -24,11 +24,14 @@ body {
   --rug-border: #4a1313;
 }
 
+*::-webkit-scrollbar{
+  display: none;
+}
+
 .app-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 }
 
 .key {
@@ -78,11 +81,6 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-}
-
-.rug {
-  width: 100%;
-  height: 50vh;
 }
 
 @media screen and (max-width: 1400px) {

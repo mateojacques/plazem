@@ -7,6 +7,9 @@ import Score from "./components/score/Score";
 import Table from "./components/table/Table";
 
 function App() {
+
+  window.onscroll = function () { window.scrollTo(0, 0); };
+
   return (
     <main className="app-container">
       <Background />

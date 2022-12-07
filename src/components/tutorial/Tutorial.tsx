@@ -48,6 +48,14 @@ const Tutorial = ({ setShowTutorial }: any) => {
           next: translation.tutorial_next,
         }}
         disableScrolling
+        styles={{
+          buttonNext: {
+            backgroundColor: "var(--primary-color)"
+          },
+          buttonBack: {
+            color: "var(--primary-color)"
+          }
+        }}
       />
     </>
   );

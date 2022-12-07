@@ -3,4 +3,5 @@
     font-weight: 300;
     text-align: center;
     margin-block: 2rem;
+    color: var(--text-color);
 }

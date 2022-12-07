@@ -1,7 +1,7 @@
 .language_selection {
     position: absolute;
-    top: 5px;
-    left: 5px;
+    top: 20px;
+    left: 20px;
     display: flex;
     gap: .7rem;
     z-index: 101;
@@ -14,5 +14,9 @@
 }
 
 .language_selection > button:hover {
-    opacity: 0.9
+    opacity: 0.75
+}
+
+.tutorial_btn > span {
+    font-size: 32px;
 }

@@ -7,13 +7,30 @@
 }
 
 .endgame_screen > p {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    padding: 2rem;
+    position: relative;
+}
+
+.endgame_screen > p::after{
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+    background-color: var(--secondary-color);
+    transform: rotate(-2deg) skew(25deg);
+    position: absolute;
+    top: 17px;
+    left: 0px;
+    opacity: 0.5;
+    z-index: -1;
 }
 
 .endgame_screen > .endgame_screen__key::after {
     content: "Shift + R";
     display: inline-block;
     margin-top: 10px;
-    color: #999;
-    transform: translateX(-6px);
+    color: var(--secondary-color-dark);
+    transform: translateX(-8px);
 }

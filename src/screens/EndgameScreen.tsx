@@ -12,6 +12,7 @@ const EndgameScreen = () => {
         <button onClick={() => onClickBoardKey("r", true)} className="key">
           <span className="material-symbols-rounded">replay</span>
         </button>
+        <p>Shift + R</p>
       </div>
     </section>
   );

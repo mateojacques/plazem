@@ -7,7 +7,7 @@ const Tutorial = ({ setShowTutorial }: any) => {
 
   const TOUR_STEPS = [
     {
-      target: ".app-container",
+      target: ".tutorial_modal",
       content: translation.tutorial_step1,
       disableBeacon: true,
     },
@@ -50,13 +50,14 @@ const Tutorial = ({ setShowTutorial }: any) => {
         disableScrolling
         styles={{
           buttonNext: {
-            backgroundColor: "var(--primary-color)"
+            backgroundColor: "var(--primary-color)",
           },
           buttonBack: {
-            color: "var(--primary-color)"
-          }
+            color: "var(--primary-color)",
+          },
         }}
       />
+      <div className="tutorial_modal" />
     </>
   );
 };

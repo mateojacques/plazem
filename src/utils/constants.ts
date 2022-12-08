@@ -108,6 +108,7 @@ export interface ITranslation {
   invalid_movement: string;
   discarded_card_in_board: string;
   victory: string;
+  config_theme: string;
 }
 
 export const ENGLISH_TRANSLATION: ITranslation = {
@@ -130,6 +131,7 @@ export const ENGLISH_TRANSLATION: ITranslation = {
   invalid_movement: "Invalid movement.",
   discarded_card_in_board: "The card you discarded was in the board.",
   victory: "Congratulations! There are no more cards in your deck.",
+  config_theme: "Change theme",
 };
 
 export const SPANISH_TRANSLATION: ITranslation = {
@@ -148,6 +150,7 @@ export const SPANISH_TRANSLATION: ITranslation = {
   invalid_movement: "Movimiento inválido.",
   discarded_card_in_board: "La carta descartada se encontraba en el tablero.",
   victory: "Felicidades! Ya no quedan más cartas en tu mazo.",
+  config_theme: "Cambiar tema",
 };
 
 export interface ITranslations {
@@ -159,6 +162,29 @@ export const TRANSLATIONS: ITranslations = {
   en: ENGLISH_TRANSLATION,
   es: SPANISH_TRANSLATION,
 };
+
+export const DARK_THEME = [
+  "#ffc629",
+  "#b55434",
+  "#c89300",
+  "#1B1919",
+  "#fff",
+  "#1B1919",
+  "#5c4f2d",
+  "#614936",
+];
+
+export const NEON_LIME_THEME = [
+  "#A7D129",
+  "#616F39",
+  "#738d2d",
+  "#1B1919",
+  "#fff",
+  "#1B1919",
+  "#566036",
+  "#616F39",
+];
+
 
 export const RUG_PRIMARY_COLOR = `${getComputedStyle(document.body).getPropertyValue('--rug-primary').replace(/#/g, '%23')}`;
 export const RUG_SECONDARY_COLOR = `${getComputedStyle(document.body).getPropertyValue('--rug-secondary').replace(/#/g, '%23')}`;

@@ -5,8 +5,9 @@
 }
 
 body {
-  font-family: "Inter", "Lucida Sans", "Trebuchet MS", "Lucida Sans Unicode",
+  font-family: "Comic Neue", "Lucida Sans", "Trebuchet MS", "Lucida Sans Unicode",
     "Lucida Grande", Arial, sans-serif;
+    font-weight: 600;
 }
 
 :root {
@@ -15,7 +16,7 @@ body {
   --key-size: 50px;
 
   --primary-color: #b69a82;
-  --secondary-color: #fff;
+  --secondary-color: #a18166;
   --secondary-color-dark: #614936;
   --bg-color: #efcba1;
   --text-color: #111;
@@ -24,7 +25,7 @@ body {
   --rug-border: #4a1313;
 }
 
-*::-webkit-scrollbar{
+*::-webkit-scrollbar {
   display: none;
 }
 
@@ -81,6 +82,17 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+}
+
+.tutorial_modal {
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transform: translateY(-10px);
 }
 
 @media screen and (max-width: 1400px) {

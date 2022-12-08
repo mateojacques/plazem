@@ -1,36 +1,38 @@
 .endgame_screen {
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     place-content: center;
     place-items: center;
-    gap: 2rem;
+    gap: 3rem;
+    transform: translateY(-50px);
 }
 
 .endgame_screen > p {
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: var(--text-color);
-    padding: 2rem;
+    padding: 1.5rem 3rem;
     position: relative;
+    font-weight: 700;
+    background: url(../images/backgrounds/bg_paper.png) no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
-.endgame_screen > p::after{
-    content: "";
-    display: inline-block;
-    width: 100%;
-    height: 50px;
-    background-color: var(--secondary-color);
-    transform: rotate(-2deg) skew(25deg);
-    position: absolute;
-    top: 17px;
-    left: 0px;
-    opacity: 0.5;
-    z-index: -1;
+.endgame_screen > .endgame_screen__key {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.3rem;
 }
 
-.endgame_screen > .endgame_screen__key::after {
-    content: "Shift + R";
-    display: inline-block;
-    margin-top: 10px;
+.endgame_screen > .endgame_screen__key > * {
+    transform: scale(1.3);
+}
+
+
+.endgame_screen > .endgame_screen__key > p {
     color: var(--secondary-color-dark);
-    transform: translateX(-8px);
+    font-weight: 600;
 }

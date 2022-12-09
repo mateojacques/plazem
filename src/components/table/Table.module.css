@@ -53,7 +53,7 @@
   position: absolute;
 }
 
-.table__remaining_cards{
+.table__remaining_cards {
   width: 100px;
   height: 100px;
   display: flex;
@@ -65,4 +65,27 @@
   color: var(--secondary-color-dark);
   transform: translateY(30px);
   opacity: 0.2;
+}
+
+@media screen and (max-width: 900px) {
+  .table{
+    margin-top: 5px;
+  }
+
+  .table__column {
+    transform: unset;
+  }
+
+  .mainDeck__dead_card {
+    margin-top: 10px;
+  }
+
+  .mainDeck__card {
+    transform: unset;
+  }
+
+  .table__remaining_cards{
+    font-size: 4rem;
+    transform: unset;
+  }
 }

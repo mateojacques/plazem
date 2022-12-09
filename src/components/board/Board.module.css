@@ -22,3 +22,13 @@
   height: var(--card-height);
   margin-top: 3rem;
 }
+
+@media screen and (max-width: 900px) {
+  .board{
+    padding: 10px 0px;
+  }
+
+  .board__card{
+    margin-top: 20px;
+  }
+}

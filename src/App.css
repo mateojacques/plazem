@@ -101,3 +101,15 @@ body {
     --card-height: 180px;
   }
 }
+
+@media screen and (max-width: 900px) {
+  :root {
+    --card-width: 80px;
+    --card-height: 124px;
+    --key-size: 35px;
+  }
+
+  .key{
+    font-size: 10px;
+  }
+}

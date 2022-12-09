@@ -128,8 +128,8 @@ export const ENGLISH_TRANSLATION: ITranslation = {
     "Back",
   tutorial_next:
     "Next",
-  invalid_movement: "Invalid movement.",
-  discarded_card_in_board: "The card you discarded was in the board.",
+  invalid_movement: "Invalid movement. Try again!",
+  discarded_card_in_board: "The card you discarded was in the board. Try again!",
   victory: "Congratulations! There are no more cards in your deck.",
   config_theme: "Change theme",
 };
@@ -147,9 +147,9 @@ export const SPANISH_TRANSLATION: ITranslation = {
   tutorial_end: "Finalizar",
   tutorial_back: "Atrás",
   tutorial_next: "Siguiente",
-  invalid_movement: "Movimiento inválido.",
-  discarded_card_in_board: "La carta descartada se encontraba en el tablero.",
-  victory: "Felicidades! Ya no quedan más cartas en tu mazo.",
+  invalid_movement: "Movimiento inválido. ¡Intenta de nuevo!",
+  discarded_card_in_board: "La carta descartada se encontraba en el tablero. ¡Intenta de nuevo!",
+  victory: "¡Felicidades! Ya no quedan más cartas en tu mazo.",
   config_theme: "Cambiar tema",
 };
 

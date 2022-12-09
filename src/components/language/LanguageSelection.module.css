@@ -22,7 +22,7 @@
     font-size: 32px;
 }
 
-@media screen and (max-width: 1000) {
+@media screen and (max-width: 1000px) {
     .language_selection{
         top: 5px;
         right: 5px;

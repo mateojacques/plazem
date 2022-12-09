@@ -23,7 +23,7 @@
   margin-top: 3rem;
 }
 
-@media screen and (max-width: 1000) {
+@media screen and (max-width: 1000px) {
   .board{
     padding: 10px 0px;
   }

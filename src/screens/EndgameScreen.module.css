@@ -50,4 +50,8 @@
     .endgame_screen > .endgame_screen__key > * {
         transform: unset;
     }
+
+    .endgame_screen > .endgame_screen__key {
+        gap: .5rem;
+    }
 }

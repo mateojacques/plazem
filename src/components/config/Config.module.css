@@ -77,7 +77,7 @@
     cursor: pointer;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000) {
     .config__open_btn{
         top: 5px;
         left: 5px;

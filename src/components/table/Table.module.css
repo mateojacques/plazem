@@ -67,7 +67,7 @@
   opacity: 0.2;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000) {
   .table{
     margin-top: 5px;
   }

@@ -21,3 +21,10 @@
 .tutorial_btn > span {
     font-size: 32px;
 }
+
+@media screen and (max-width: 900px) {
+    .language_selection{
+        top: 5px;
+        right: 5px;
+    }
+}

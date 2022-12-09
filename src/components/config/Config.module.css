@@ -76,3 +76,10 @@
     right: 10px;
     cursor: pointer;
 }
+
+@media screen and (max-width: 900px) {
+    .config__open_btn{
+        top: 5px;
+        left: 5px;
+    }
+}

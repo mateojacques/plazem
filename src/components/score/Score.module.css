@@ -14,7 +14,7 @@
 
 @media screen and (max-width: 900px) {
     .score {
-        margin-bottom: 20px;
+        margin-bottom: 5px;
     }
 
     .score > h1 {

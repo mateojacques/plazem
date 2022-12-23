@@ -11,13 +11,15 @@
 
 .endgame_screen > p {
     font-size: 2rem;
-    color: var(--text-color);
+    color: var(--text-white);
     padding: 1.5rem 3rem;
     position: relative;
     font-weight: 700;
-    background: url(../images/backgrounds/bg_paper.png) no-repeat;
+    background-color: var(--rug-primary);
     background-size: cover;
     background-position: center;
+    border: 5px solid var(--rug-border);
+    border-radius: 10px;
 }
 
 .endgame_screen > .endgame_screen__key {

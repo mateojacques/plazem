@@ -4,18 +4,12 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Comic Neue", "Lucida Sans", "Trebuchet MS", "Lucida Sans Unicode",
-    "Lucida Grande", Arial, sans-serif;
-    font-weight: 600;
-}
-
 :root {
   --card-width: 180px;
   --card-height: 250px;
   --key-size: 50px;
 
-  --primary-color: #b69a82;
+  --primary-color: #BA8C47;
   --secondary-color: #a18166;
   --secondary-color-dark: #614936;
   --bg-color: #efcba1;
@@ -23,6 +17,16 @@ body {
   --rug-primary: #732721;
   --rug-secondary: #937d5c;
   --rug-border: #4a1313;
+  --text-white: #fff;
+  --text-black: #111;
+
+  --font: "Comic Neue";
+}
+
+body {
+  font-family: var(--font), "Lucida Sans", "Trebuchet MS", "Lucida Sans Unicode",
+    "Lucida Grande", Arial, sans-serif;
+    font-weight: 600;
 }
 
 *::-webkit-scrollbar {

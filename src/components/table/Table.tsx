@@ -1,26 +1,19 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useContext, useState, useRef } from "react";
 import styles from "./Table.module.css";
 import { TableContext } from "../../contexts/tableContext";
-import { generateMainDeck } from "../../utils/deck";
 import {
   CARD_AMOUNT,
   DEATH_CARD_ZONE,
-  IKeysRows,
   KEYS,
   KEYS_ROWS,
 } from "../../utils/constants";
-
-interface ICurrentCard {
-  id: number;
-  name: string;
-  image: string;
-}
+import { ICardAmount } from "../../interfaces/tableContext";
+import { ICurrentCard } from "../../interfaces/table";
+import { IKeysRows } from "../../interfaces/constants";
 
 const Table = () => {
-  const [deck, setDeck] = useState(generateMainDeck());
-  const [currentCard, setCurrentCard] = useState<ICurrentCard>(deck[0]);
   const {
+    deck,
     validateCardRow,
     isFinished,
     finishGame,
@@ -36,6 +29,7 @@ const Table = () => {
     onClickBoardKey,
     translation,
   } = useContext(TableContext);
+  const [currentCard, setCurrentCard] = useState<ICurrentCard>(deck[0]);
   const cardElement = useRef(null as any);
   const playedCardsElement = useRef(null as any);
 
@@ -67,7 +61,9 @@ const Table = () => {
       cardClone.style.position = "fixed";
       const { top, bottom, left, right } =
         refs[index].current.getBoundingClientRect();
-      cardClone.style.top = `${top + (cardAmount[key] + 2) * 10}px`;
+      cardClone.style.top = `${
+        top + (cardAmount[key as keyof ICardAmount] + 2) * 10
+      }px`;
       cardClone.style.bottom = `${bottom}px`;
       cardClone.style.left = `${left}px`;
       cardClone.style.right = `${right}px`;
@@ -100,7 +96,7 @@ const Table = () => {
       if (round === 0) startTimer();
 
       if (shiftKey && key.toLowerCase() === "r") {
-        restartGame(setDeck);
+        restartGame();
         return;
       }
 
@@ -115,7 +111,7 @@ const Table = () => {
     }
   };
 
-  const onResize = () => restartGame(setDeck);
+  const onResize = () => restartGame();
 
   useEffect(() => {
     document.addEventListener("keydown", onKeyPress);
@@ -128,7 +124,7 @@ const Table = () => {
   }, [onKeyPress]);
 
   useEffect(() => {
-    setCurrentCard(deck[0]);
+    if (Object.keys(deck).length > 0) setCurrentCard(deck[0]);
   }, [deck]);
 
   return (
@@ -165,7 +161,7 @@ const Table = () => {
             )}
           </div>
 
-          <div className={styles.played_cards} ref={playedCardsElement}></div>
+          <div className={styles.played_cards} ref={playedCardsElement} />
         </>
       )}
     </section>

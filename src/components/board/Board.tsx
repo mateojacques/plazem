@@ -1,12 +1,12 @@
 import styles from "./Board.module.css";
-import { KEYS, RUG_BACKGROUND } from "../../utils/constants";
-import { generateBoard } from "../../utils/deck";
+import { KEYS } from "../../utils/constants";
 import { useEffect, useContext, useRef } from "react";
 import { TableContext } from "../../contexts/tableContext";
 import EndgameScreen from "../../screens/EndgameScreen";
+import { createRug } from "../../utils/helpers";
 
 const Board = () => {
-  const { saveBoard, board, isFinished, onClickBoardKey } =
+  const { saveBoard, board, isFinished, onClickBoardKey, generateBoard } =
     useContext(TableContext);
   const currentBoard = generateBoard();
 
@@ -17,6 +17,8 @@ const Board = () => {
     useRef(null),
     useRef(null),
   ];
+
+  const RUG_BACKGROUND = createRug();
 
   useEffect(() => {
     if (!board.length) saveBoard(currentBoard, cardRefs);

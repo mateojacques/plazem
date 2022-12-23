@@ -1,15 +1,15 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { TableContext } from "../../contexts/tableContext";
 import styles from "./Config.module.css";
 import classicThemeIcon from "../../images/themes/classic_theme_icon.png";
 import coderThemeIcon from "../../images/themes/coder_theme_icon.png";
-import astroThemeIcon from "../../images/themes/astro_theme_icon.png";
 import futbolThemeIcon from "../../images/themes/futbol_theme_icon.png";
 
 const Config = () => {
   const [open, setOpen] = useState<boolean>(false);
-  const [selectedTheme, setSelectedTheme] = useState<string>("classic");
-  const { translation } = useContext(TableContext);
+  const [selectedTheme, setSelectedTheme] = useState<string>("");
+  const { translation, changeTheme } = useContext(TableContext);
+  const defaultTheme = localStorage.getItem("cardTheme");
 
   const THEME_ICONS = [
     {
@@ -25,18 +25,16 @@ const Config = () => {
       onClick: () => setSelectedTheme("coder"),
     },
     {
-      id: "astro",
-      themeName: "Astro",
-      image: astroThemeIcon,
-      onClick: () => setSelectedTheme("astro"),
-    },
-    {
       id: "futbol",
       themeName: "Fútbol",
       image: futbolThemeIcon,
       onClick: () => setSelectedTheme("futbol"),
     },
   ];
+
+  useEffect(() => {
+    if (selectedTheme) changeTheme(selectedTheme);
+  }, [selectedTheme]);
 
   return (
     <>
@@ -55,7 +53,9 @@ const Config = () => {
                 <div key={themeName}>
                   <button
                     className={`${styles.config__theme_icon} ${
-                      selectedTheme === id ? styles.icon_selected : ""
+                      selectedTheme === id || defaultTheme === id
+                        ? styles.icon_selected
+                        : ""
                     }`}
                     onClick={onClick}
                     style={{ background: `url(${image})` }}

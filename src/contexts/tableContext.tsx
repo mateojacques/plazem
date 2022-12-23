@@ -1,43 +1,24 @@
 import { createContext, useEffect, useState } from "react";
 import {
-  IKeysRows,
-  ITranslations,
   KEYS_ROWS,
+  THEMES_CARDS,
+  THEMES_COLORS,
+  THEMES_FONTS,
   TRANSLATIONS,
 } from "../utils/constants";
-import { generateBoard, generateMainDeck } from "../utils/deck";
+import {
+  ICard,
+  IKeysRows,
+  IThemeCards,
+  IThemeColors,
+  IThemeFonts,
+  ITranslation,
+  ITranslations,
+} from "../interfaces/constants";
 import { Timer } from "timer-node";
-
-interface ITableContext {
-  score: number;
-  round: number;
-  board: any;
-  refs: any;
-  isFinished: boolean;
-  endMessage: string;
-  cardAmount: any;
-  time: string;
-  deathDeck: any[];
-  translation: any;
-  setRound: Function;
-  saveBoard: Function;
-  validateCardRow: Function;
-  finishGame: Function;
-  restartGame: Function;
-  startTimer: Function;
-  killCard: Function;
-  onClickBoardKey: Function;
-  changeLanguage: Function;
-}
-
-interface ICardAmount {
-  q: number;
-  w: number;
-  e: number;
-  r: number;
-  t: number;
-  f: number;
-}
+import shuffle from "array-shuffle";
+import { changeThemeColors, changeThemeFont } from "../utils/helpers";
+import { ITableContext, ICardAmount } from "../interfaces/tableContext";
 
 export const TableContext = createContext({} as ITableContext);
 
@@ -51,24 +32,40 @@ const defaultCardAmounts = {
 };
 
 const TableProvider = ({ children }: any) => {
+  const [playableCards, setPlayableCards] = useState<ICard[]>([]);
   const [score, setScore] = useState<number>(0);
   const [round, setRound] = useState<number>(0);
-  const [board, setBoard] = useState<any>([]);
-  const [deathDeck, setDeathDeck] = useState<any>([]);
+  const [board, setBoard] = useState<ICard[]>([]);
+  const [deathDeck, setDeathDeck] = useState<ICard[]>([]);
   const [refs, setRefs] = useState<any[]>([]);
   const [isFinished, setIsFinished] = useState<boolean>(false);
   const [endMessage, setEndMessage] = useState<string>("");
   const [cardAmount, setCardAmount] = useState<ICardAmount>(defaultCardAmounts);
   const [timer, setTimer] = useState(new Timer());
   const [time, setTime] = useState<string>("0.0");
-  const [translation, setTranslation] = useState(TRANSLATIONS.en);
+  const [translation, setTranslation] = useState<ITranslation>(TRANSLATIONS.en);
 
-  const saveBoard = (board: Array<object>, cardRefs: any[]) => {
+  const defaultTheme = localStorage.getItem("cardTheme") || "classic";
+
+  const generateBoard = () =>
+    shuffle(THEMES_CARDS[defaultTheme as keyof IThemeCards]).slice(1, 6);
+
+  const generateMainDeck = () =>
+    shuffle(
+      THEMES_CARDS[defaultTheme as keyof IThemeCards]
+        .concat(THEMES_CARDS[defaultTheme as keyof IThemeCards])
+        .concat(THEMES_CARDS[defaultTheme as keyof IThemeCards])
+        .concat(THEMES_CARDS[defaultTheme as keyof IThemeCards])
+        .concat(THEMES_CARDS[defaultTheme as keyof IThemeCards])
+    );
+  const [deck, setDeck] = useState(generateMainDeck());
+
+  const saveBoard = (board: ICard[], cardRefs: any[]) => {
     setBoard(board);
     setRefs(cardRefs);
   };
 
-  const validateCardRow = (keyPressed: any, card: any) => {
+  const validateCardRow = (keyPressed: string, card: ICard) => {
     const index = KEYS_ROWS[keyPressed as keyof IKeysRows] - 1;
     if (board[index].id === card.id) {
       setScore(score + 1);
@@ -86,7 +83,7 @@ const TableProvider = ({ children }: any) => {
     timer.stop();
   };
 
-  const restartGame = (setDeck: Function) => {
+  const restartGame = () => {
     timer.stop();
 
     setScore(0);
@@ -116,7 +113,7 @@ const TableProvider = ({ children }: any) => {
     } else clearInterval(timerInterval);
   };
 
-  const killCard = (card: any) => {
+  const killCard = (card: ICard) => {
     setDeathDeck([...deathDeck, card]);
     setCardAmount({
       ...cardAmount,
@@ -135,7 +132,16 @@ const TableProvider = ({ children }: any) => {
   const changeLanguage = (code: keyof ITranslations) =>
     setTranslation(TRANSLATIONS[code]);
 
+  const changeTheme = (theme: string) => {
+    localStorage.setItem("cardTheme", theme);
+    window.location.reload();
+  };
+
   useEffect(() => {
+    setPlayableCards(THEMES_CARDS[defaultTheme as keyof IThemeCards]);
+    changeThemeColors(THEMES_COLORS[defaultTheme as keyof IThemeColors]);
+    changeThemeFont(THEMES_FONTS[defaultTheme as keyof IThemeFonts]);
+
     updateTimer();
     return updateTimer(true);
   }, []);
@@ -143,6 +149,8 @@ const TableProvider = ({ children }: any) => {
   return (
     <TableContext.Provider
       value={{
+        playableCards,
+        deck,
         score,
         round,
         board,
@@ -153,6 +161,7 @@ const TableProvider = ({ children }: any) => {
         time,
         deathDeck,
         translation,
+        setDeck,
         setRound,
         saveBoard,
         validateCardRow,
@@ -161,7 +170,10 @@ const TableProvider = ({ children }: any) => {
         startTimer,
         killCard,
         onClickBoardKey,
-        changeLanguage
+        changeLanguage,
+        generateMainDeck,
+        generateBoard,
+        changeTheme,
       }}
     >
       {children}

@@ -1,4 +1,3 @@
-import React, { useContext, useEffect, useState } from "react";
 import "./App.css";
 import Background from "./components/Background";
 import Board from "./components/board/Board";
@@ -8,8 +7,9 @@ import Config from "./components/config/Config";
 import Table from "./components/table/Table";
 
 function App() {
-
-  window.onscroll = function () { window.scrollTo(0, 0); };
+  window.onscroll = function () {
+    window.scrollTo(0, 0);
+  };
 
   return (
     <main className="app-container">
@@ -18,7 +18,7 @@ function App() {
       <Board />
       <Table />
       <LanguageSelection />
-      <Config/>
+      <Config />
     </main>
   );
 }

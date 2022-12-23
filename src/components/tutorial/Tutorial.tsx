@@ -50,10 +50,11 @@ const Tutorial = ({ setShowTutorial }: any) => {
         disableScrolling
         styles={{
           buttonNext: {
-            backgroundColor: "var(--primary-color)",
+            backgroundColor: "var(--bg-color)",
+            color: "var(--primary-color)"
           },
           buttonBack: {
-            color: "var(--primary-color)",
+            color: "var(--bg-color)",
           },
         }}
       />

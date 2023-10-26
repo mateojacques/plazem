@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import {
+  CARD_AMOUNT,
   KEYS_ROWS,
   THEMES_CARDS,
   THEMES_COLORS,
@@ -41,7 +42,7 @@ const TableProvider = ({ children }: any) => {
   const [isFinished, setIsFinished] = useState<boolean>(false);
   const [endMessage, setEndMessage] = useState<string>("");
   const [cardAmount, setCardAmount] = useState<ICardAmount>(defaultCardAmounts);
-  const [timer, setTimer] = useState(new Timer());
+  const [timer] = useState(new Timer());
   const [time, setTime] = useState<string>("0.0");
   const [translation, setTranslation] = useState<ITranslation>(TRANSLATIONS.en);
 
@@ -50,14 +51,13 @@ const TableProvider = ({ children }: any) => {
   const generateBoard = () =>
     shuffle(THEMES_CARDS[defaultTheme as keyof IThemeCards]).slice(1, 6);
 
-  const generateMainDeck = () =>
-    shuffle(
-      THEMES_CARDS[defaultTheme as keyof IThemeCards]
-        .concat(THEMES_CARDS[defaultTheme as keyof IThemeCards])
-        .concat(THEMES_CARDS[defaultTheme as keyof IThemeCards])
-        .concat(THEMES_CARDS[defaultTheme as keyof IThemeCards])
-        .concat(THEMES_CARDS[defaultTheme as keyof IThemeCards])
-    );
+  const generateMainDeck = () => {
+    const accumulatedDeck = Array.from(
+      { length: CARD_AMOUNT / 10 },
+      () => THEMES_CARDS[defaultTheme as keyof IThemeCards]
+    ).flat();
+    return shuffle(accumulatedDeck);
+  };
   const [deck, setDeck] = useState(generateMainDeck());
 
   const saveBoard = (board: ICard[], cardRefs: any[]) => {

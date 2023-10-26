@@ -256,6 +256,7 @@ export const KEYS_ROWS: IKeysRows = {
   t: 5,
 };
 
+/* MUST be a multiple of 10 | CARD_AMOUNT % 2 must be 0 */
 export const CARD_AMOUNT: number = 50;
 
 export const ENGLISH_TRANSLATION: ITranslation = {

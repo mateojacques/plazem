@@ -41,38 +41,35 @@ const Config = () => {
       <button className={styles.config__open_btn} onClick={() => setOpen(true)}>
         <span className="material-symbols-rounded">settings</span>
       </button>
-      {open && (
-        <>
-          <div className={styles.config__modal} onClick={() => setOpen(false)}>
-            {" "}
-          </div>
-          <div className={styles.config}>
-            <h1>{translation.config_theme}</h1>
-            <div className={styles.config__theme_icons}>
-              {THEME_ICONS.map(({ id, themeName, image, onClick }) => (
-                <div key={themeName}>
-                  <button
-                    className={`${styles.config__theme_icon} ${
-                      selectedTheme === id || defaultTheme === id
-                        ? styles.icon_selected
-                        : ""
-                    }`}
-                    onClick={onClick}
-                    style={{ background: `url(${image})` }}
-                  />
-                  <h3>{themeName}</h3>
-                </div>
-              ))}
+      <div
+        className={`${styles.config__modal} ${open ? styles.show : ""}`}
+        onClick={() => setOpen(!open)}
+      />
+      <div className={`${styles.config} ${open ? styles.show : ""}`}>
+        <h1>{translation.config_theme}</h1>
+        <div className={styles.config__theme_icons}>
+          {THEME_ICONS.map(({ id, themeName, image, onClick }) => (
+            <div key={themeName}>
+              <button
+                className={`${styles.config__theme_icon} ${
+                  selectedTheme === id || defaultTheme === id
+                    ? styles.icon_selected
+                    : ""
+                }`}
+                onClick={onClick}
+                style={{ background: `url(${image})` }}
+              />
+              <h3>{themeName}</h3>
             </div>
-            <div
-              className={styles.config__close_btn}
-              onClick={() => setOpen(false)}
-            >
-              <span className="material-symbols-rounded">close</span>
-            </div>
-          </div>
-        </>
-      )}
+          ))}
+        </div>
+        <div
+          className={styles.config__close_btn}
+          onClick={() => setOpen(false)}
+        >
+          <span className="material-symbols-rounded">close</span>
+        </div>
+      </div>
     </>
   );
 };

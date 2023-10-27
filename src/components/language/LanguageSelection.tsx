@@ -11,6 +11,7 @@ const LanguageSelection = () => {
 
   useEffect(() => {
     setShowTutorial(!localStorage.getItem("hasCompletedTutorial"));
+    if (!selectedLanguage) changeLanguage(LANGUAGES[0].code);
   }, []);
 
   return (

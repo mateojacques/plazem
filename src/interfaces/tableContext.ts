@@ -13,6 +13,7 @@ export interface ITableContext {
   time: string;
   deathDeck: ICard[];
   translation: ITranslation;
+  selectedLanguage: string;
   setDeck: Function;
   setRound: Function;
   saveBoard: Function;

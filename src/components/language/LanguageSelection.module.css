@@ -22,6 +22,10 @@
     font-size: 32px;
 }
 
+.muted_filter {
+    filter: grayscale(0.7);
+}
+
 @media screen and (max-width: 1000px) {
     .language_selection{
         top: 5px;

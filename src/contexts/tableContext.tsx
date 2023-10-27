@@ -44,7 +44,10 @@ const TableProvider = ({ children }: any) => {
   const [cardAmount, setCardAmount] = useState<ICardAmount>(defaultCardAmounts);
   const [timer] = useState(new Timer());
   const [time, setTime] = useState<string>("0.0");
-  const [translation, setTranslation] = useState<ITranslation>(TRANSLATIONS.en);
+  const selectedLanguage = localStorage.getItem("selectedLanguage") as string;
+  const [translation, setTranslation] = useState<ITranslation>(
+    TRANSLATIONS[selectedLanguage as keyof ITranslations] || TRANSLATIONS.en
+  );
 
   const defaultTheme = localStorage.getItem("cardTheme") || "classic";
 
@@ -129,8 +132,10 @@ const TableProvider = ({ children }: any) => {
       })
     );
 
-  const changeLanguage = (code: keyof ITranslations) =>
+  const changeLanguage = (code: keyof ITranslations) => {
     setTranslation(TRANSLATIONS[code]);
+    localStorage.setItem("selectedLanguage", code);
+  };
 
   const changeTheme = (theme: string) => {
     localStorage.setItem("cardTheme", theme);
@@ -161,6 +166,7 @@ const TableProvider = ({ children }: any) => {
         time,
         deathDeck,
         translation,
+        selectedLanguage,
         setDeck,
         setRound,
         saveBoard,

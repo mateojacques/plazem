@@ -12,14 +12,14 @@ export const CLASSIC_THEME = [
 export const CLASSIC_FONT = "Comic Neue";
 
 export const CODER_THEME = [
-  "#4AF626",
+  "#0B3222",
   "#22E000",
   "#0F6600",
   "#111",
   "#fff",
   "#111",
-  "#0F6600",
-  "#0F6600",
+  "#093D00",
+  "#093D00",
 ];
 
 export const CODER_FONT = "Lucida Console"
@@ -28,7 +28,7 @@ export const FUTBOL_THEME = [
   "#ffffff70",
   "#22E000",
   "#ffffff70",
-  "#0f452d",
+  "#072116",
   "#fff",
   "#0f452d",
   "#166441",

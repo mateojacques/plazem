@@ -23,34 +23,57 @@
   transition: 0.1s ease;
 }
 
+@keyframes deathAnimation {
+  0% {
+    filter: grayscale(1) brightness(1);
+  }
+
+  50% {
+    filter: grayscale(1) brightness(0.5);
+  }
+
+  100% {
+    filter: grayscale(1) brightness(1);
+  }
+}
+
 .mainDeck__dead_card {
   width: var(--card-width);
   height: var(--card-height);
   filter: grayscale(1);
   margin-top: 2rem;
+  animation: deathAnimation 1s 1;
 }
 
-.mainDeck__side_card {
-  width: var(--card-width);
-  height: var(--card-height);
-  filter: opacity(1);
-  margin-top: 2rem;
-}
-
-.card_move_up {
-  transform: translateY(70px);
+.card_move_down {
+  transform: translateY(200px);
 }
 
 .card_move_right {
-  transform: translate(30px, calc(var(--card-height) * var(--card-offset-y)));
-}
-
-.card_move_left {
-  transform: translate(-30px, calc(var(--card-height) * var(--card-offset-y)));
+  transform: translate(50px, calc(var(--card-height) * var(--card-offset-y)));
 }
 
 .played_cards {
   position: absolute;
+}
+
+@keyframes placeCardAnimation {
+  0% {
+    box-shadow: 0px 0px 0px 10px var(--primary-color);
+    transform: scale(1.5);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  100% {
+    box-shadow: none;
+  }
+}
+
+.played_card {
+    animation: placeCardAnimation 0.8s 1;
 }
 
 .table__remaining_cards {

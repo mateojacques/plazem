@@ -32,6 +32,12 @@ const Table = () => {
   const [currentCard, setCurrentCard] = useState<ICurrentCard>(deck[0]);
   const cardElement = useRef(null as any);
   const playedCardsElement = useRef(null as any);
+  const deadCard = deathDeck[cardAmount.f - 1] || {};
+  const {
+    keyId: deadCardKeyId,
+    name: deadCardName,
+    image: deadCardImage,
+  } = deadCard;
 
   const cardTransition = (key: string) => {
     const isDiscarded = key === "f";
@@ -48,12 +54,12 @@ const Table = () => {
     }
 
     if (!isDiscarded && validateCardRow(key, currentCard)) {
-      cardElement.current.classList.add(styles.card_move_up);
+      cardElement.current.classList.add(styles.card_move_down);
 
       // Clone main deck card
       const cardClone = cardElement.current.cloneNode();
-      cardClone.classList.add("played_card");
-      cardClone.classList.remove(styles.card_move_up);
+      cardClone.classList.add(styles.played_card);
+      cardClone.classList.remove(styles.card_move_down);
 
       const index = KEYS_ROWS[key as keyof IKeysRows] - 1;
 
@@ -79,7 +85,7 @@ const Table = () => {
 
     setTimeout(() => {
       if (cardElement.current) {
-        cardElement.current.classList.remove(styles.card_move_up);
+        cardElement.current.classList.remove(styles.card_move_down);
         cardElement.current.classList.remove(styles.card_move_right);
       }
     }, 100);
@@ -146,19 +152,12 @@ const Table = () => {
             <button onClick={() => onClickBoardKey("f")} className="key">
               <h1>F</h1>
             </button>
-            {deathDeck.length > 0 && deathDeck[cardAmount.f - 1] ? (
-              <img
-                src={deathDeck[cardAmount.f - 1].image}
-                alt={deathDeck[cardAmount.f - 1].name}
-                className={styles.mainDeck__dead_card}
-              />
-            ) : (
-              <img
-                src={DEATH_CARD_ZONE.image}
-                alt={DEATH_CARD_ZONE.name}
-                className={styles.mainDeck__dead_card}
-              />
-            )}
+            <img
+              key={deadCardKeyId || DEATH_CARD_ZONE.name}
+              src={deadCardImage || DEATH_CARD_ZONE.image}
+              alt={deadCardName || DEATH_CARD_ZONE.name}
+              className={styles.mainDeck__dead_card}
+            />
           </div>
 
           <div className={styles.played_cards} ref={playedCardsElement} />

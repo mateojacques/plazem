@@ -24,11 +24,11 @@
 }
 
 @media screen and (max-width: 1000px) {
-  .board{
+  .board {
     padding: 10px 0px;
   }
 
-  .board__card{
+  .board__card {
     margin-top: 20px;
   }
 }

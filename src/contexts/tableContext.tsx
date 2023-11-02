@@ -20,6 +20,7 @@ import { Timer } from "timer-node";
 import shuffle from "array-shuffle";
 import { changeThemeColors, changeThemeFont } from "../utils/helpers";
 import { ITableContext, ICardAmount } from "../interfaces/tableContext";
+import styles from "../components/table/Table.module.css";
 
 export const TableContext = createContext({} as ITableContext);
 
@@ -59,7 +60,12 @@ const TableProvider = ({ children }: any) => {
       { length: CARD_AMOUNT / 10 },
       () => THEMES_CARDS[defaultTheme as keyof IThemeCards]
     ).flat();
-    return shuffle(accumulatedDeck);
+    return shuffle(
+      accumulatedDeck.map((card) => ({
+        ...card,
+        keyId: Math.ceil(Math.random() * 1000),
+      }))
+    );
   };
   const [deck, setDeck] = useState(generateMainDeck());
 
@@ -99,7 +105,7 @@ const TableProvider = ({ children }: any) => {
     setDeathDeck([]);
     setEndMessage("");
 
-    const playedCards = document.querySelectorAll(".played_card");
+    const playedCards = document.querySelectorAll(`.${styles.played_card}`);
     Array.from(playedCards).map((card: any) => card.remove());
   };
 

@@ -9,18 +9,18 @@ import {
 } from "./themes";
 
 // CLASSIC CARDS
-import turtleCard from "../images/cards/turtle_card.png";
-import butterflyCard from "../images/cards/butterfly_card.png";
-import lionCard from "../images/cards/lion_card.png";
-import foxCard from "../images/cards/fox_card.png";
-import spiderCard from "../images/cards/spider_card.png";
-import giraffeCard from "../images/cards/giraffe_card.png";
-import parrotCard from "../images/cards/parrot_card.png";
-import crocodileCard from "../images/cards/crocodile_card.png";
-import flamingoCard from "../images/cards/flamingo_card.png";
-import monkeyCard from "../images/cards/monkey_card.png";
-import deathCardBoard from "../images/cards/death_card_board.png";
-import deathCardZone from "../images/cards/death_card_zone.png";
+import turtleCard from "../images/cards/classic/turtle_card.png";
+import butterflyCard from "../images/cards/classic/butterfly_card.png";
+import lionCard from "../images/cards/classic/lion_card.png";
+import foxCard from "../images/cards/classic/fox_card.png";
+import spiderCard from "../images/cards/classic/spider_card.png";
+import giraffeCard from "../images/cards/classic/giraffe_card.png";
+import parrotCard from "../images/cards/classic/parrot_card.png";
+import crocodileCard from "../images/cards/classic/crocodile_card.png";
+import flamingoCard from "../images/cards/classic/flamingo_card.png";
+import monkeyCard from "../images/cards/classic/monkey_card.png";
+import deathCardBoard from "../images/cards/classic/death_card_board.png";
+import deathCardZone from "../images/cards/classic/death_card_zone.png";
 
 // CODER CARDS
 import perlCard from "../images/cards/coder/perl_card.png";

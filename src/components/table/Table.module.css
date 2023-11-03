@@ -92,7 +92,7 @@
 
 @media screen and (max-width: 1000px) {
   :root {
-    --card-offset-y: 0.1;
+    --card-offset-y: -0.1;
   }
 
   .table{
@@ -105,7 +105,7 @@
 
   .mainDeck__dead_card {
     margin-top: 10px;
-    transform: translateY(20px);
+    transform: translateY(0px);
   }
 
   .card_move_down {

@@ -40,6 +40,7 @@ const Board = () => {
               alt={name}
               className={styles.board__card}
               ref={cardRefs[i]}
+              onClick={() => onClickBoardKey(KEYS[i])}
             />
           </div>
         ))

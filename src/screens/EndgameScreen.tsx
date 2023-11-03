@@ -9,10 +9,10 @@ const EndgameScreen = () => {
     <section className={styles.endgame_screen}>
       <p>{endMessage}</p>
       <div className={styles.endgame_screen__key}>
-        <button onClick={() => onClickBoardKey("r", true)} className="key">
+        <button onClick={() => onClickBoardKey("r", true)} className="key restart-key">
           <span className="material-symbols-rounded">replay</span>
         </button>
-        <p>Shift + R</p>
+        <p className="restart-legend">Shift + R</p>
       </div>
     </section>
   );

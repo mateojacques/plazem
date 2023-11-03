@@ -9,7 +9,7 @@
   --card-height: 250px;
   --key-size: 50px;
 
-  --primary-color: #BA8C47;
+  --primary-color: #ba8c47;
   --secondary-color: #a18166;
   --secondary-color-dark: #614936;
   --bg-color: #efcba1;
@@ -26,7 +26,7 @@
 body {
   font-family: var(--font), "Lucida Sans", "Trebuchet MS", "Lucida Sans Unicode",
     "Lucida Grande", Arial, sans-serif;
-    font-weight: 600;
+  font-weight: 600;
 }
 
 *::-webkit-scrollbar {
@@ -113,7 +113,17 @@ body {
     --key-size: 35px;
   }
 
-  .key{
+  .key {
     font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .key:not(.restart-key) {
+    display: none;
+  }
+
+  .restart-legend {
+    display: none;
   }
 }

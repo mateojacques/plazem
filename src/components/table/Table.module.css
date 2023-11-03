@@ -87,10 +87,14 @@
   font-size: 15rem;
   color: var(--secondary-color-dark);
   transform: translateY(30px);
-  opacity: 0.2;
+  opacity: 0.1;
 }
 
 @media screen and (max-width: 1000px) {
+  :root {
+    --card-offset-y: 0.1;
+  }
+
   .table{
     margin-top: 5px;
   }
@@ -101,14 +105,19 @@
 
   .mainDeck__dead_card {
     margin-top: 10px;
+    transform: translateY(20px);
   }
 
-  .mainDeck__card {
-    transform: unset;
+  .card_move_down {
+    transform: translateY(70px);
+  }
+
+  .card_move_right {
+    transform: translate(20px, calc(var(--card-height) * var(--card-offset-y)));
   }
 
   .table__remaining_cards{
-    font-size: 4rem;
-    transform: unset;
+    font-size: 7rem;
+    transform: translate(-5px, -7vh);
   }
 }

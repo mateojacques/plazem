@@ -74,7 +74,8 @@ const Table = () => {
       cardClone.style.left = `${left}px`;
       cardClone.style.right = `${right}px`;
       cardClone.style.transform = "translateY(-10px)";
-
+      cardClone.onclick = () => onClickBoardKey(KEYS[index]);
+      
       // Append cloned card to DOM
       playedCardsElement.current.appendChild(cardClone);
     }
@@ -157,6 +158,7 @@ const Table = () => {
               src={deadCardImage || DEATH_CARD_ZONE.image}
               alt={deadCardName || DEATH_CARD_ZONE.name}
               className={styles.mainDeck__dead_card}
+              onClick={() => onClickBoardKey("f")}
             />
           </div>
 

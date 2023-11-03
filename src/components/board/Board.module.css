@@ -1,6 +1,7 @@
 .board {
   width: 85vw;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   margin: auto;
   padding: 3rem 1rem;
@@ -25,10 +26,11 @@
 
 @media screen and (max-width: 1000px) {
   .board {
+    width: 95vw;
     padding: 10px 0px;
   }
 
   .board__card {
-    margin-top: 20px;
+    margin: 30px 10px;
   }
 }

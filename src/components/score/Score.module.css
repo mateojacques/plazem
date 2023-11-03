@@ -1,24 +1,33 @@
-.score{
-    width: 100%;
-    display: flex;
+.score {
+  width: 100%;
+  display: flex;
 }
 
-.score > h1{
-    font-size: 3rem;
-    font-weight: 700;
-    text-align: center;
-    margin: 2rem auto;
-    color: var(--text-color);
-    display: inline-block;
+.score > h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 2rem auto;
+  color: var(--text-color);
+  display: inline-block;
 }
 
 @media screen and (max-width: 1000px) {
-    .score {
-        margin-bottom: 5px;
-    }
+  .score {
+    margin-bottom: 5px;
+  }
 
-    .score > h1 {
-        font-size: 2.5rem;
-        margin: 0px auto;
-    }
+  .score > h1 {
+    font-size: 2.5rem;
+    margin: 0px auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .score > h1 {
+    position: absolute;
+    top: 1vh;
+    left: 1vh;
+    font-size: 3rem;
+  }
 }

@@ -92,7 +92,7 @@
 
 @media screen and (max-width: 1000px) {
   :root {
-    --card-offset-y: -0.1;
+    --card-offset-y: 0.1;
   }
 
   .table{
@@ -118,6 +118,6 @@
 
   .table__remaining_cards{
     font-size: 7rem;
-    transform: translate(-5px, -7vh);
+    transform: translate(-5px, 10px);
   }
 }

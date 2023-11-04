@@ -33,6 +33,8 @@ const defaultCardAmounts = {
   f: 0,
 };
 
+const TIME_INITIAL_STATE = "0.0s";
+
 const TableProvider = ({ children }: any) => {
   const [playableCards, setPlayableCards] = useState<ICard[]>([]);
   const [score, setScore] = useState<number>(0);
@@ -44,7 +46,7 @@ const TableProvider = ({ children }: any) => {
   const [endMessage, setEndMessage] = useState<string>("");
   const [cardAmount, setCardAmount] = useState<ICardAmount>(defaultCardAmounts);
   const [timer] = useState(new Timer());
-  const [time, setTime] = useState<string>("0.0");
+  const [time, setTime] = useState<string>(TIME_INITIAL_STATE);
   const selectedLanguage = localStorage.getItem("selectedLanguage") as string;
   const [translation, setTranslation] = useState<ITranslation>(
     TRANSLATIONS[selectedLanguage as keyof ITranslations] || TRANSLATIONS.en
@@ -104,7 +106,7 @@ const TableProvider = ({ children }: any) => {
       setIsFinished(false);
       setCardAmount(defaultCardAmounts);
       setDeck(generateMainDeck());
-      setTime("0.0");
+      setTime(TIME_INITIAL_STATE);
       setDeathDeck([]);
       setEndMessage("");
     }
@@ -118,7 +120,10 @@ const TableProvider = ({ children }: any) => {
     let timerInterval;
     if (!clear) {
       timerInterval = setInterval(() => {
-        if (timer.isRunning()) setTime(`${timer.time().s}.${timer.time().ms}`);
+        const timeString = `${timer.time().h ? `${timer.time().h}h ` : ""}${
+          timer.time().m ? `${timer.time().m}m ` : ""
+        }${timer.time().s}.${timer.time().ms}s`;
+        if (timer.isRunning()) setTime(timeString);
       }, 10) as any;
     } else clearInterval(timerInterval);
   };

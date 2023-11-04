@@ -75,7 +75,7 @@ const Table = () => {
       cardClone.style.right = `${right}px`;
       cardClone.style.transform = "translateY(-10px)";
       cardClone.onclick = () => onClickBoardKey(KEYS[index]);
-      
+
       // Append cloned card to DOM
       playedCardsElement.current.appendChild(cardClone);
     }
@@ -103,7 +103,7 @@ const Table = () => {
       if (round === 0) startTimer();
 
       if (shiftKey && key.toLowerCase() === "r") {
-        restartGame();
+        restartGame(true);
         return;
       }
 

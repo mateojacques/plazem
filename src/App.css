@@ -107,14 +107,24 @@ body {
 }
 
 @media screen and (max-width: 1000px) {
+  .key {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 650px) and (max-width: 810px) {
+  :root {
+    --card-width: 100px;
+    --card-height: 155px;
+    --key-size: 35px;
+  }
+}
+
+@media screen and (max-width: 500px) {
   :root {
     --card-width: 80px;
     --card-height: 124px;
     --key-size: 35px;
-  }
-
-  .key {
-    font-size: 10px;
   }
 }
 

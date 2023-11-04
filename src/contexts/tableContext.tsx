@@ -92,21 +92,22 @@ const TableProvider = ({ children }: any) => {
     timer.stop();
   };
 
-  const restartGame = () => {
-    timer.stop();
-
-    setScore(0);
-    setRound(0);
-    setBoard(generateBoard());
-    setIsFinished(false);
-    setCardAmount(defaultCardAmounts);
-    setDeck(generateMainDeck());
-    setTime("0.0");
-    setDeathDeck([]);
-    setEndMessage("");
-
+  const restartGame = (comeFromRestartButton?: boolean) => {
     const playedCards = document.querySelectorAll(`.${styles.played_card}`);
-    Array.from(playedCards).map((card: any) => card.remove());
+    const playedCardsArray = Array.from(playedCards);
+    if (playedCardsArray.length > 0 || comeFromRestartButton) {
+      playedCardsArray.map((card: any) => card.remove());
+      timer.stop();
+      setScore(0);
+      setRound(0);
+      setBoard(generateBoard());
+      setIsFinished(false);
+      setCardAmount(defaultCardAmounts);
+      setDeck(generateMainDeck());
+      setTime("0.0");
+      setDeathDeck([]);
+      setEndMessage("");
+    }
   };
 
   const startTimer = () => {

@@ -118,7 +118,7 @@ body {
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (any-pointer: coarse) and (hover: none) {
   .key:not(.restart-key) {
     display: none;
   }

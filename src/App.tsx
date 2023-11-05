@@ -7,14 +7,16 @@ import { BODY_CLASSNAME } from "./utils/constants";
 import Header from "./components/header/Header";
 
 function App() {
-  window.onscroll = function () {
-    window.scrollTo(0, 0);
-  };
+  if (window.matchMedia("(min-width: 768px)").matches) {
+    window.onscroll = function () {
+      window.scrollTo(0, 0);
+    };
+  }
 
   return (
     <main className={BODY_CLASSNAME}>
       <Background />
-      <Header/>
+      <Header />
       <Board />
       <Table />
       <LanguageSelection />

@@ -82,14 +82,18 @@
 }
 
 @media screen and (max-width: 470px) {
+  .header {
+    margin-bottom: 20px;
+  }
+
   .header > div:nth-child(1) {
     grid-column: 2;
     grid-row: 1;
   }
 
   .header > div:nth-child(2) {
-    grid-column: 1;
-    grid-row: 2;
+    grid-column: 3;
+    grid-row: 1;
   }
 
   .header > div:nth-child(3) {

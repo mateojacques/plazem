@@ -1,5 +1,5 @@
 .board {
-  width: 85vw;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -26,7 +26,6 @@
 
 @media screen and (max-width: 1000px) {
   .board {
-    width: 95vw;
     padding: 10px 0px;
   }
 

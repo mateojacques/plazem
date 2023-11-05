@@ -20,6 +20,7 @@ export interface ITableContext {
   deathDeck: ICard[];
   translation: ITranslation;
   selectedLanguage: string;
+  currentView: string;
   setDeck: Function;
   setRound: Function;
   saveBoard: Function;
@@ -33,6 +34,7 @@ export interface ITableContext {
   generateMainDeck: Function;
   generateBoard: Function;
   changeTheme: Function;
+  setCurrentView: Function;
 }
 
 export interface ICardAmount {

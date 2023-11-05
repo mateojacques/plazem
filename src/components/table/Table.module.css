@@ -87,7 +87,7 @@
   font-size: 15rem;
   color: var(--secondary-color-dark);
   transform: translateY(30px);
-  opacity: 0.1;
+  opacity: 0.3;
 }
 
 @media screen and (max-width: 1000px) {

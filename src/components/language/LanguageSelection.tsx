@@ -19,7 +19,7 @@ const LanguageSelection = () => {
       {showTutorial && <Tutorial setShowTutorial={setShowTutorial} />}
       <div className={styles.language_selection}>
         {LANGUAGES.map(({ name, code, imageSrc }) => (
-          <button onClick={() => changeLanguage(code)}>
+          <button key={code} onClick={() => changeLanguage(code)}>
             <img
               src={imageSrc}
               alt={name}

@@ -5,7 +5,7 @@ import { TableContext } from "../../contexts/tableContext";
 const Score = () => {
   const { time } = useContext(TableContext);
   return (
-    <div className={styles.score}>
+    <div className={`score ${styles.score}`}>
       <h1 className="time">{time}</h1>
     </div>
   );

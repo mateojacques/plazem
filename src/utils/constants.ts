@@ -313,3 +313,29 @@ export const TRANSLATIONS: ITranslations = {
 };
 
 export const STOP_INPUT_DELAY_AFTER_END_GAME = 100;
+
+export const MENU_ITEMS = [
+  {
+    id: 1,
+    icon: "playing_cards",
+  },
+  {
+    id: 2,
+    icon: "person",
+  },
+  {
+    id: 3,
+    icon: "trophy",
+  },
+  {
+    id: 4,
+    icon: "settings",
+  },
+];
+
+export const ICONS_VIEWS: { [key: number]: string } = {
+  1: "game",
+  2: "profile",
+  3: "rankings",
+  4: "settings",
+};

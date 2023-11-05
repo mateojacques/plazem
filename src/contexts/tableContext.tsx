@@ -62,6 +62,7 @@ const TableProvider = ({ children }: any) => {
   const [translation, setTranslation] = useState<ITranslation>(
     TRANSLATIONS[selectedLanguage as keyof ITranslations] || TRANSLATIONS.en
   );
+  const [currentView, setCurrentView] = useState<string>("game");
 
   const defaultTheme = localStorage.getItem("cardTheme") || "classic";
 
@@ -202,6 +203,7 @@ const TableProvider = ({ children }: any) => {
         deathDeck,
         translation,
         selectedLanguage,
+        currentView,
         setDeck,
         setRound,
         saveBoard,
@@ -215,6 +217,7 @@ const TableProvider = ({ children }: any) => {
         generateMainDeck,
         generateBoard,
         changeTheme,
+        setCurrentView,
       }}
     >
       {children}

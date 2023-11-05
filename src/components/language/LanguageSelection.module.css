@@ -1,7 +1,7 @@
 .language_selection {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  bottom: 20px;
+  left: 20px;
   display: flex;
   gap: 0.7rem;
   z-index: 101;
@@ -28,8 +28,8 @@
 
 @media screen and (max-width: 1000px) {
   .language_selection {
-    top: 5px;
-    right: 5px;
+    bottom: 5px;
+    left: 5px;
   }
 }
 

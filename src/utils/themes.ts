@@ -1,38 +1,41 @@
 export const CLASSIC_THEME = [
-  "#BA8C47",
-  "#a18166",
-  "#614936",
-  "#efcba1",
-  "#111",
-  "#732721",
-  "#937d5c",
-  "#4a1313",
+  { var_name: "--primary-color", code: "#BA8C47" },
+  { var_name: "--secondary-color", code: "#a18166" },
+  { var_name: "--secondary-color-dark", code: "#61493670" },
+  { var_name: "--bg-color", code: "#efcba1" },
+  { var_name: "--text-color", code: "#111" },
+  { var_name: "--rug-primary", code: "#732721" },
+  { var_name: "--rug-secondary", code: "#937d5c" },
+  { var_name: "--rug-border", code: "#4a1313" },
+  { var_name: "--muted", code: "#61493650" },
 ];
 
-export const CLASSIC_FONT = "Comic Neue";
+export const CLASSIC_FONT = "Convergence";
 
 export const CODER_THEME = [
-  "#0B3222",
-  "#22E000",
-  "#0F6600",
-  "#111",
-  "#fff",
-  "#111",
-  "#093D00",
-  "#093D00",
+  { var_name: "--primary-color", code: "#0B3222" },
+  { var_name: "--secondary-color", code: "#22E000" },
+  { var_name: "--secondary-color-dark", code: "#0F6600" },
+  { var_name: "--bg-color", code: "#111" },
+  { var_name: "--text-color", code: "#fff" },
+  { var_name: "--rug-primary", code: "#111" },
+  { var_name: "--rug-secondary", code: "#093D00" },
+  { var_name: "--rug-border", code: "#093D00" },
+  { var_name: "--muted", code: "#0F660050" },
 ];
 
-export const CODER_FONT = "Lucida Console"
+export const CODER_FONT = "Lucida Console";
 
 export const FUTBOL_THEME = [
-  "#ffffff70",
-  "#22E000",
-  "#ffffff70",
-  "#072116",
-  "#fff",
-  "#0f452d",
-  "#166441",
-  "#166441",
+  { var_name: "--primary-color", code: "#ffffff70" },
+  { var_name: "--secondary-color", code: "#22E000" },
+  { var_name: "--secondary-color-dark", code: "#ffffff70" },
+  { var_name: "--bg-color", code: "#0f452d" },
+  { var_name: "--text-color", code: "#fff" },
+  { var_name: "--rug-primary", code: "#0f452d" },
+  { var_name: "--rug-secondary", code: "#166441" },
+  { var_name: "--rug-border", code: "#166441" },
+  { var_name: "--muted", code: "#ffffff50" },
 ];
 
 export const FUTBOL_FONT = "Ubuntu";

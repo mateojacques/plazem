@@ -9,10 +9,12 @@ export interface IThemeCards {
   coder: ICard[];
   futbol: ICard[];
 }
+
+export type TColor = { var_name: string; code: string };
 export interface IThemeColors {
-  classic: string[];
-  coder: string[];
-  futbol: string[];
+  classic: TColor[];
+  coder: TColor[];
+  futbol: TColor[];
 }
 export interface IThemeFonts {
   classic: string;
@@ -38,6 +40,8 @@ export interface ITranslation {
   invalid_movement: string;
   discarded_card_in_board: string;
   victory: string;
+  defeat_timer_message: string;
+  victory_timer_message: string;
   config_theme: string;
 }
 export interface ITranslations {

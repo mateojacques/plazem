@@ -28,6 +28,7 @@ const Table = () => {
     deathDeck,
     onClickBoardKey,
     translation,
+    stopInput,
   } = useContext(TableContext);
   const [currentCard, setCurrentCard] = useState<ICurrentCard>(deck[0]);
   const cardElement = useRef(null as any);
@@ -45,7 +46,10 @@ const Table = () => {
       board.filter(({ id }: any) => id === currentCard.id).length > 0;
     if (isDiscarded) {
       if (isInBoard) {
-        finishGame(translation.discarded_card_in_board);
+        finishGame({
+          message: translation.discarded_card_in_board,
+          timer_message: translation.defeat_timer_message,
+        });
         return;
       } else {
         cardElement.current.classList.add(styles.card_move_right);
@@ -80,7 +84,10 @@ const Table = () => {
       playedCardsElement.current.appendChild(cardClone);
     }
     if (!isDiscarded && !validateCardRow(key, currentCard)) {
-      finishGame(translation.invalid_movement);
+      finishGame({
+        message: translation.invalid_movement,
+        timer_message: translation.defeat_timer_message,
+      });
       return;
     }
 
@@ -99,6 +106,7 @@ const Table = () => {
     key: string;
     shiftKey: boolean;
   }) => {
+    if (stopInput) return;
     if (KEYS.includes(key.toLowerCase())) {
       if (round === 0) startTimer();
 
@@ -113,7 +121,11 @@ const Table = () => {
 
         if (round < CARD_AMOUNT - 1) {
           setCurrentCard(deck[round + 1]);
-        } else finishGame(translation.victory);
+        } else
+          finishGame({
+            message: translation.victory,
+            timer_message: translation.victory_timer_message,
+          });
       }
     }
   };

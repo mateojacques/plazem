@@ -57,6 +57,9 @@ import {
   ITranslations,
 } from "../interfaces/constants";
 
+export const BODY_CLASSNAME = "app-container";
+export const BODY_SELECTOR = `.${BODY_CLASSNAME}`;
+
 export const CLASSIC_CARDS: ICard[] = [
   {
     id: 1,
@@ -276,6 +279,8 @@ export const ENGLISH_TRANSLATION: ITranslation = {
   discarded_card_in_board:
     "The card you discarded was in the board. Try again!",
   victory: "Congratulations! There are no more cards in your deck.",
+  defeat_timer_message: "Your run lasted...",
+  victory_timer_message: "You achieved it in...",
   config_theme: "Change theme",
 };
 
@@ -284,8 +289,9 @@ export const SPANISH_TRANSLATION: ITranslation = {
     "Bienvenido a Plazem! Este es un juego enfocado en la velocidad y los reflejos.",
   tutorial_step2:
     "Este es el tablero. Tendrás que colocar las cartas de tu mazo coincidiendo con las de las columnas, presionando la tecla asignada a cada una.",
-  tutorial_step3:
-    "Este es tu mazo. En él hay 50 cartas, 5 por cada tipo. Deberás colocar las cartas que se encuentren en el tablero y descartar (tecla F) las que no.",
+  tutorial_step3: `Este es tu mazo. En él hay ${CARD_AMOUNT} cartas, ${
+    CARD_AMOUNT / 10
+  } por cada tipo. Deberás colocar las cartas que se encuentren en el tablero y descartar las que no.`,
   tutorial_step4:
     "La meta es colocar todas las cartas sin errores en el menor tiempo posible.",
   tutorial_skip: "Saltar tutorial",
@@ -295,7 +301,9 @@ export const SPANISH_TRANSLATION: ITranslation = {
   invalid_movement: "Movimiento inválido. ¡Intenta de nuevo!",
   discarded_card_in_board:
     "La carta descartada se encontraba en el tablero. ¡Intenta de nuevo!",
-  victory: "¡Felicidades! Ya no quedan más cartas en tu mazo.",
+  victory: "¡Felicidades! Colocaste todas las cartas correctamente.",
+  defeat_timer_message: "Tu intento duró...",
+  victory_timer_message: "Lo conseguiste en...",
   config_theme: "Cambiar tema",
 };
 
@@ -303,3 +311,5 @@ export const TRANSLATIONS: ITranslations = {
   en: ENGLISH_TRANSLATION,
   es: SPANISH_TRANSLATION,
 };
+
+export const STOP_INPUT_DELAY_AFTER_END_GAME = 100;

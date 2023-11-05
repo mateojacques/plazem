@@ -11,7 +11,7 @@
 
   --primary-color: #ba8c47;
   --secondary-color: #a18166;
-  --secondary-color-dark: #614936;
+  --secondary-color-dark: #61493670;
   --bg-color: #efcba1;
   --text-color: #111;
   --rug-primary: #732721;
@@ -19,8 +19,9 @@
   --rug-border: #4a1313;
   --text-white: #fff;
   --text-black: #111;
+  --muted: #61493650;
 
-  --font: "Comic Neue";
+  --font: "Convergence";
 }
 
 body {
@@ -37,6 +38,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  padding-top: 120px;
 }
 
 .key {
@@ -126,11 +128,19 @@ body {
     --card-height: 124px;
     --key-size: 35px;
   }
+
+  .app-container {
+    padding-top: 30px;
+  }
 }
 
 @media screen and (pointer: coarse) {
   .key:not(.restart-key) {
     display: none;
+  }
+
+  .key.restart-key {
+    transform: scale(1.5) !important;
   }
 
   .restart-legend {

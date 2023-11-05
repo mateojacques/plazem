@@ -1,5 +1,10 @@
 import { ICard, ITranslation } from "./constants";
 
+export type TEndMessages = {
+  message: string;
+  timer_message: string;
+};
+
 export interface ITableContext {
   playableCards: ICard[];
   deck: ICard[];
@@ -8,9 +13,10 @@ export interface ITableContext {
   board: ICard[];
   refs: any;
   isFinished: boolean;
-  endMessage: string;
+  endMessages: TEndMessages;
   cardAmount: ICardAmount;
   time: string;
+  stopInput: boolean;
   deathDeck: ICard[];
   translation: ITranslation;
   selectedLanguage: string;

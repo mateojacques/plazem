@@ -1,16 +1,9 @@
-export const changeThemeColors = (theme: string[]) => {
-  document.documentElement.style.setProperty("--primary-color", theme[0]);
-  document.documentElement.style.setProperty("--secondary-color", theme[1]);
-  document.documentElement.style.setProperty(
-    "--secondary-color-dark",
-    theme[2]
+import { TColor } from "../interfaces/constants";
+
+export const changeThemeColors = (theme: TColor[]) =>
+  theme.forEach(({ var_name, code }) =>
+    document.documentElement.style.setProperty(var_name, code)
   );
-  document.documentElement.style.setProperty("--bg-color", theme[3]);
-  document.documentElement.style.setProperty("--text-color", theme[4]);
-  document.documentElement.style.setProperty("--rug-primary", theme[5]);
-  document.documentElement.style.setProperty("--rug-secondary", theme[6]);
-  document.documentElement.style.setProperty("--rug-border", theme[7]);
-};
 
 export const changeThemeFont = (fontName: string) =>
   document.documentElement.style.setProperty("--font", fontName);

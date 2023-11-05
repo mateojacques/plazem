@@ -1,7 +1,9 @@
 import { createContext, useEffect, useState } from "react";
 import {
+  BODY_SELECTOR,
   CARD_AMOUNT,
   KEYS_ROWS,
+  STOP_INPUT_DELAY_AFTER_END_GAME,
   THEMES_CARDS,
   THEMES_COLORS,
   THEMES_FONTS,
@@ -19,8 +21,13 @@ import {
 import { Timer } from "timer-node";
 import shuffle from "array-shuffle";
 import { changeThemeColors, changeThemeFont } from "../utils/helpers";
-import { ITableContext, ICardAmount } from "../interfaces/tableContext";
+import {
+  ITableContext,
+  ICardAmount,
+  TEndMessages,
+} from "../interfaces/tableContext";
 import styles from "../components/table/Table.module.css";
+import scoreStyles from "../components/score/Score.module.css";
 
 export const TableContext = createContext({} as ITableContext);
 
@@ -43,10 +50,14 @@ const TableProvider = ({ children }: any) => {
   const [deathDeck, setDeathDeck] = useState<ICard[]>([]);
   const [refs, setRefs] = useState<any[]>([]);
   const [isFinished, setIsFinished] = useState<boolean>(false);
-  const [endMessage, setEndMessage] = useState<string>("");
+  const [endMessages, setEndMessages] = useState<TEndMessages>({
+    message: "",
+    timer_message: "",
+  });
   const [cardAmount, setCardAmount] = useState<ICardAmount>(defaultCardAmounts);
   const [timer] = useState(new Timer());
   const [time, setTime] = useState<string>(TIME_INITIAL_STATE);
+  const [stopInput, setStopInput] = useState(false);
   const selectedLanguage = localStorage.getItem("selectedLanguage") as string;
   const [translation, setTranslation] = useState<ITranslation>(
     TRANSLATIONS[selectedLanguage as keyof ITranslations] || TRANSLATIONS.en
@@ -88,9 +99,9 @@ const TableProvider = ({ children }: any) => {
     return board[index].id === card.id;
   };
 
-  const finishGame = (message: string) => {
+  const finishGame = ({ message, timer_message }: TEndMessages) => {
     setIsFinished(true);
-    setEndMessage(message);
+    setEndMessages({ message, timer_message });
     timer.stop();
   };
 
@@ -108,7 +119,9 @@ const TableProvider = ({ children }: any) => {
       setDeck(generateMainDeck());
       setTime(TIME_INITIAL_STATE);
       setDeathDeck([]);
-      setEndMessage("");
+      setEndMessages({ message: "", timer_message: "" });
+      setStopInput(true);
+      setTimeout(() => setStopInput(false), STOP_INPUT_DELAY_AFTER_END_GAME);
     }
   };
 
@@ -163,6 +176,15 @@ const TableProvider = ({ children }: any) => {
     return updateTimer(true);
   }, []);
 
+  useEffect(() => {
+    const body = document.querySelector(BODY_SELECTOR);
+
+    if (body) {
+      if (isFinished) body.classList.add(scoreStyles.endGame);
+      else body.classList.remove(scoreStyles.endGame);
+    }
+  }, [isFinished]);
+
   return (
     <TableContext.Provider
       value={{
@@ -173,9 +195,10 @@ const TableProvider = ({ children }: any) => {
         board,
         refs,
         isFinished,
-        endMessage,
+        endMessages,
         cardAmount,
         time,
+        stopInput,
         deathDeck,
         translation,
         selectedLanguage,

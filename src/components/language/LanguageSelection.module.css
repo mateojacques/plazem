@@ -1,34 +1,44 @@
 .language_selection {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    display: flex;
-    gap: .7rem;
-    z-index: 101;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 0.7rem;
+  z-index: 101;
 }
 
 .language_selection > button {
-    border: none;
-    background: none;
-    cursor: pointer;
-    color: var(--text-color);
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--text-color);
 }
 
 .language_selection > button:hover {
-    opacity: 0.75
+  opacity: 0.75;
 }
 
 .tutorial_btn > span {
-    font-size: 32px;
+  font-size: 32px;
 }
 
 .muted_filter {
-    filter: grayscale(0.7);
+  filter: grayscale(0.7);
 }
 
 @media screen and (max-width: 1000px) {
-    .language_selection{
-        top: 5px;
-        right: 5px;
-    }
+  .language_selection {
+    top: 5px;
+    right: 5px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .language_selection {
+    gap: 0.1rem;
+  }
+
+  .language_selection > button {
+    transform: scale(0.7);
+  }
 }

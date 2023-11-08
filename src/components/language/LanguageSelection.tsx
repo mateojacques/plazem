@@ -24,10 +24,10 @@ const LanguageSelection = () => {
   };
 
   const changeLanguage = (code: string) =>
-    setCurrentSettings((previousValue: any) => ({
-      ...previousValue,
+    setCurrentSettings({
+      ...currentSettings,
       language: code,
-    }));
+    });
 
   useEffect(() => {
     setShowTutorial(!localStorage.getItem("hasCompletedTutorial"));

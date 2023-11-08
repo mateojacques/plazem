@@ -25,6 +25,7 @@ import {
   ITableContext,
   ICardAmount,
   TEndMessages,
+  ICurrentSettings,
 } from "../interfaces/tableContext";
 import styles from "../components/table/Table.module.css";
 import scoreStyles from "../components/score/Score.module.css";
@@ -190,11 +191,10 @@ const TableProvider = ({ children }: any) => {
     changeThemeColors(THEMES_COLORS[theme as keyof IThemeColors]);
   };
 
-  const handleSettings = (currentSettings: any) => {
-    const { language, card_quantity, theme, future_vision } = currentSettings;
+  const handleSettings = (currentSettings: ICurrentSettings) => {
+    const { language, theme } = currentSettings;
 
-    changeLanguage(language);
-    setCardAmount(card_quantity);
+    changeLanguage(language as keyof ITranslations);
     changeTheme(theme);
   };
 

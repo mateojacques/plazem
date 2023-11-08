@@ -7,10 +7,10 @@ const SettingsView = () => {
     useContext(TableContext);
 
   const handleSettingsChange = (setting_id: string, value: any) =>
-    setCurrentSettings((previousValue: any) => ({
-      ...previousValue,
+    setCurrentSettings({
+      ...currentSettings,
       [setting_id]: value,
-    }));
+    });
 
   const SETTINGS = [
     {

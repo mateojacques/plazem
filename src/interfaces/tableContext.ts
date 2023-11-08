@@ -5,6 +5,13 @@ export type TEndMessages = {
   timer_message: string;
 };
 
+export interface ICurrentSettings {
+  [key: string]: any;
+  language: string;
+  card_quantity: number;
+  theme: string;
+}
+
 export interface ITableContext {
   playableCards: ICard[];
   deck: ICard[];
@@ -20,8 +27,7 @@ export interface ITableContext {
   deathDeck: ICard[];
   translation: ITranslation;
   currentView: string;
-  // TODO currentSettings interface
-  currentSettings: any;
+  currentSettings: ICurrentSettings;
   setDeck: Function;
   setRound: Function;
   saveBoard: Function;
@@ -37,8 +43,7 @@ export interface ITableContext {
   changeTheme: Function;
   setCurrentView: Function;
   setIsFinished(isFinished: boolean): void;
-  // TODO current settings interface
-  setCurrentSettings(currentSettings: any): void;
+  setCurrentSettings(currentSettings: ICurrentSettings): void;
 }
 
 export interface ICardAmount {

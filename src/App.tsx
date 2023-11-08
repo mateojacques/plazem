@@ -1,15 +1,29 @@
 import "./App.css";
 import Background from "./components/Background";
-import Board from "./components/board/Board";
 import LanguageSelection from "./components/language/LanguageSelection";
-import Table from "./components/table/Table";
 import { BODY_CLASSNAME } from "./utils/constants";
 import Header from "./components/header/Header";
 import { useContext, useEffect } from "react";
 import { TableContext } from "./contexts/tableContext";
+import GameView from "./views/GameView";
 
 function App() {
-  const { cardAmount } = useContext(TableContext);
+  const { currentView, cardAmount, restartGame } = useContext(TableContext);
+
+  const renderView = (view: string) => {
+    switch (view) {
+      case "game":
+        return <GameView />;
+      case "profile":
+        return <>Profile</>;
+      case "rankings":
+        return <>Rankings</>;
+      case "settings":
+        return <>Settings</>;
+      default:
+        return <></>;
+    }
+  };
 
   useEffect(() => {
     const gameStarted = Object.values(cardAmount).reduce(
@@ -27,12 +41,15 @@ function App() {
     }
   }, [cardAmount]);
 
+  useEffect(() => {
+    restartGame(true);
+  }, [currentView]);
+
   return (
     <main className={BODY_CLASSNAME}>
       <Background />
       <Header />
-      <Board />
-      <Table />
+      {renderView(currentView)}
       <LanguageSelection />
     </main>
   );

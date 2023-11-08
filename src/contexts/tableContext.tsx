@@ -106,15 +106,15 @@ const TableProvider = ({ children }: any) => {
     timer.stop();
   };
 
-  const restartGame = (comeFromRestartButton?: boolean) => {
+  const restartGame = (forceRestart?: boolean) => {
     const playedCards = document.querySelectorAll(`.${styles.played_card}`);
     const playedCardsArray = Array.from(playedCards);
-    if (playedCardsArray.length > 0 || comeFromRestartButton) {
+    if (playedCardsArray.length > 0 || forceRestart) {
       playedCardsArray.map((card: any) => card.remove());
       timer.stop();
       setScore(0);
       setRound(0);
-      setBoard(generateBoard());
+      setBoard([]);
       setIsFinished(false);
       setCardAmount(defaultCardAmounts);
       setDeck(generateMainDeck());
@@ -218,6 +218,7 @@ const TableProvider = ({ children }: any) => {
         generateBoard,
         changeTheme,
         setCurrentView,
+        setIsFinished
       }}
     >
       {children}

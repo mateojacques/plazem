@@ -35,6 +35,7 @@ export interface ITableContext {
   generateBoard: Function;
   changeTheme: Function;
   setCurrentView: Function;
+  setIsFinished(isFinished: boolean): void;
 }
 
 export interface ICardAmount {

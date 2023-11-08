@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styles from "./LanguageSelection.module.css";
 import { TableContext } from "../../contexts/tableContext";
 import Tutorial from "../tutorial/Tutorial";
@@ -6,8 +6,20 @@ import { LANGUAGES } from "../../utils/configuration";
 
 const LanguageSelection = () => {
   const [showTutorial, setShowTutorial] = useState(false);
-  const { selectedLanguage, changeLanguage, isFinished } =
-    useContext(TableContext);
+  const {
+    selectedLanguage,
+    changeLanguage,
+    setCurrentView,
+    setIsFinished,
+    restartGame,
+  } = useContext(TableContext);
+
+  const handleStartTutorial = () => {
+    restartGame(true);
+    setIsFinished(false);
+    setCurrentView("game");
+    setShowTutorial(true);
+  };
 
   useEffect(() => {
     setShowTutorial(!localStorage.getItem("hasCompletedTutorial"));
@@ -29,14 +41,9 @@ const LanguageSelection = () => {
             />
           </button>
         ))}
-        {!isFinished && (
-          <button
-            className={styles.tutorial_btn}
-            onClick={() => setShowTutorial(true)}
-          >
-            <span className="material-symbols-rounded">help</span>
-          </button>
-        )}
+        <button className={styles.tutorial_btn} onClick={handleStartTutorial}>
+          <span className="material-symbols-rounded">help</span>
+        </button>
       </div>
     </>
   );

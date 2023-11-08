@@ -59,7 +59,12 @@ import neonParrotCard from "../images/cards/neon/parrot_card.png";
 import neonCrocodileCard from "../images/cards/neon/crocodile_card.png";
 import neonFlamingoCard from "../images/cards/neon/flamingo_card.png";
 import neonMonkeyCard from "../images/cards/neon/monkey_card.png";
-import neonDeathCardBoard from "../images/cards/neon/death_card_board.png";
+
+// LOGOS
+import plazem_logo_classic from "../images/brand/plazem_logo_classic.png";
+import plazem_logo_neon from "../images/brand/plazem_logo_neon.png";
+import plazem_logo_futbol from "../images/brand/plazem_logo_futbol.png";
+import plazem_logo_coder from "../images/brand/plazem_logo_coder.png";
 
 // INTERFACES
 import {
@@ -308,6 +313,13 @@ export const THEMES_FONTS: IThemeFonts = {
   neon: NEON_FONT,
 };
 
+export const LOGOS: { [key: string]: string } = {
+  classic: plazem_logo_classic,
+  neon: plazem_logo_neon,
+  futbol: plazem_logo_futbol,
+  coder: plazem_logo_coder,
+};
+
 export const DEATH_CARD_BOARD = {
   id: 0,
   name: "DeathBoard",
@@ -396,7 +408,7 @@ export const MENU_ITEMS = [
     id: 1,
     icon: "playing_cards",
   },
-/*   {
+  /*   {
     id: 2,
     icon: "person",
   },

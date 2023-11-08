@@ -1,14 +1,18 @@
 import styles from "./Header.module.css";
 import Score from "../../components/score/Score";
-import logo from "../../images/brand/plazem_logo_classic.png";
 import HeaderMenu from "./HeaderMenu";
+import { useContext } from "react";
+import { TableContext } from "../../contexts/tableContext";
+import { LOGOS } from "../../utils/constants";
 
 const Header = () => {
+  const { currentSettings } = useContext(TableContext);
+
   return (
     <header className={styles.header}>
-      <img src={logo} alt="Plazem logo"/>
+      <img src={LOGOS[currentSettings.theme]} alt="Plazem logo" />
       <Score />
-      <HeaderMenu/>
+      <HeaderMenu />
     </header>
   );
 };

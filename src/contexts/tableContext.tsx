@@ -46,7 +46,7 @@ const DEFAULT_SETTINGS = {
   language: "en",
   card_quantity: 50,
   theme: "classic",
-  future_vision: false,
+  // future_vision: false,
 };
 
 const TableProvider = ({ children }: any) => {

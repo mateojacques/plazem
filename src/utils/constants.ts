@@ -396,14 +396,14 @@ export const MENU_ITEMS = [
     id: 1,
     icon: "playing_cards",
   },
-  {
+/*   {
     id: 2,
     icon: "person",
   },
   {
     id: 3,
     icon: "trophy",
-  },
+  }, */
   {
     id: 4,
     icon: "settings",

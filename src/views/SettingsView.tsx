@@ -67,7 +67,7 @@ const SettingsView = () => {
         },
       ],
     },
-    {
+    /* {
       id: "future_vision",
       label: translation.settings_future_vision_label,
       options: [
@@ -80,7 +80,7 @@ const SettingsView = () => {
           value: false,
         },
       ],
-    },
+    }, */
   ];
 
   useEffect(() => {

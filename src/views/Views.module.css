@@ -29,6 +29,7 @@
   align-items: center;
   gap: 5.5rem;
   color: var(--text-color);
+  flex-wrap: wrap;
 }
 
 .option > * {

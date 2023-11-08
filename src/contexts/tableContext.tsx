@@ -42,7 +42,18 @@ const defaultCardAmounts = {
 
 const TIME_INITIAL_STATE = "0.0s";
 
+const DEFAULT_SETTINGS = {
+  language: "en",
+  card_quantity: 50,
+  theme: "classic",
+  future_vision: false,
+};
+
 const TableProvider = ({ children }: any) => {
+  const settingsFromStorage = localStorage.getItem("settings") as string;
+  const [currentSettings, setCurrentSettings] = useState<any>(
+    JSON.parse(settingsFromStorage) || DEFAULT_SETTINGS
+  );
   const [playableCards, setPlayableCards] = useState<ICard[]>([]);
   const [score, setScore] = useState<number>(0);
   const [round, setRound] = useState<number>(0);
@@ -58,20 +69,23 @@ const TableProvider = ({ children }: any) => {
   const [timer] = useState(new Timer());
   const [time, setTime] = useState<string>(TIME_INITIAL_STATE);
   const [stopInput, setStopInput] = useState(false);
-  const selectedLanguage = localStorage.getItem("selectedLanguage") as string;
   const [translation, setTranslation] = useState<ITranslation>(
-    TRANSLATIONS[selectedLanguage as keyof ITranslations] || TRANSLATIONS.en
+    TRANSLATIONS[currentSettings.language as keyof ITranslations] ||
+      TRANSLATIONS.en
   );
   const [currentView, setCurrentView] = useState<string>("game");
 
-  const defaultTheme = localStorage.getItem("cardTheme") || "classic";
+  const defaultTheme = currentSettings?.theme || "classic";
 
   const generateBoard = () =>
     shuffle(THEMES_CARDS[defaultTheme as keyof IThemeCards]).slice(1, 6);
 
   const generateMainDeck = () => {
     const accumulatedDeck = Array.from(
-      { length: CARD_AMOUNT / 10 },
+      {
+        length:
+          (currentSettings?.card_quantity || CARD_AMOUNT) / 10,
+      },
       () => THEMES_CARDS[defaultTheme as keyof IThemeCards]
     ).flat();
     return shuffle(
@@ -160,19 +174,31 @@ const TableProvider = ({ children }: any) => {
 
   const changeLanguage = (code: keyof ITranslations) => {
     setTranslation(TRANSLATIONS[code]);
-    localStorage.setItem("selectedLanguage", code);
+    localStorage.setItem(
+      "settings",
+      JSON.stringify({ ...currentSettings, language: code })
+    );
   };
 
   const changeTheme = (theme: string) => {
-    localStorage.setItem("cardTheme", theme);
-    window.location.reload();
+    localStorage.setItem(
+      "settings",
+      JSON.stringify({ ...currentSettings, theme })
+    );
+    setPlayableCards(THEMES_CARDS[theme as keyof IThemeCards]);
+    changeThemeFont(THEMES_FONTS[theme as keyof IThemeFonts]);
+    changeThemeColors(THEMES_COLORS[theme as keyof IThemeColors]);
+  };
+
+  const handleSettings = (currentSettings: any) => {
+    const { language, card_quantity, theme, future_vision } = currentSettings;
+
+    changeLanguage(language);
+    setCardAmount(card_quantity);
+    changeTheme(theme);
   };
 
   useEffect(() => {
-    setPlayableCards(THEMES_CARDS[defaultTheme as keyof IThemeCards]);
-    changeThemeColors(THEMES_COLORS[defaultTheme as keyof IThemeColors]);
-    changeThemeFont(THEMES_FONTS[defaultTheme as keyof IThemeFonts]);
-
     updateTimer();
     return updateTimer(true);
   }, []);
@@ -185,6 +211,12 @@ const TableProvider = ({ children }: any) => {
       else body.classList.remove(scoreStyles.endGame);
     }
   }, [isFinished]);
+
+  useEffect(() => {
+    if (!settingsFromStorage)
+      localStorage.setItem("settings", JSON.stringify(currentSettings));
+    if (currentSettings) handleSettings(currentSettings);
+  }, [currentSettings]);
 
   return (
     <TableContext.Provider
@@ -202,8 +234,8 @@ const TableProvider = ({ children }: any) => {
         stopInput,
         deathDeck,
         translation,
-        selectedLanguage,
         currentView,
+        currentSettings,
         setDeck,
         setRound,
         saveBoard,
@@ -218,7 +250,8 @@ const TableProvider = ({ children }: any) => {
         generateBoard,
         changeTheme,
         setCurrentView,
-        setIsFinished
+        setIsFinished,
+        setCurrentSettings,
       }}
     >
       {children}

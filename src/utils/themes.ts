@@ -39,3 +39,17 @@ export const FUTBOL_THEME = [
 ];
 
 export const FUTBOL_FONT = "Ubuntu";
+
+export const NEON_THEME = [
+  { var_name: "--primary-color", code: "#262626" },
+  { var_name: "--secondary-color", code: "#DEDEDE" },
+  { var_name: "--secondary-color-dark", code: "#ffffff70" },
+  { var_name: "--bg-color", code: "#191919" },
+  { var_name: "--text-color", code: "#DEDEDE" },
+  { var_name: "--rug-primary", code: "#0f452d00" },
+  { var_name: "--rug-secondary", code: "#16644100" },
+  { var_name: "--rug-border", code: "#626262" },
+  { var_name: "--muted", code: "#ffffff50" },
+];
+
+export const NEON_FONT = "Convergence";

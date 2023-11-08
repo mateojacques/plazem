@@ -2,7 +2,6 @@ import React, { useEffect, useContext, useState, useRef } from "react";
 import styles from "./Table.module.css";
 import { TableContext } from "../../contexts/tableContext";
 import {
-  CARD_AMOUNT,
   DEATH_CARD_ZONE,
   KEYS,
   KEYS_ROWS,
@@ -29,6 +28,7 @@ const Table = () => {
     onClickBoardKey,
     translation,
     stopInput,
+    currentSettings
   } = useContext(TableContext);
   const [currentCard, setCurrentCard] = useState<ICurrentCard>(deck[0]);
   const cardElement = useRef(null as any);
@@ -119,7 +119,7 @@ const Table = () => {
         setRound(round + 1);
         cardTransition(key.toLowerCase());
 
-        if (round < CARD_AMOUNT - 1) {
+        if (round < currentSettings.card_quantity - 1) {
           setCurrentCard(deck[round + 1]);
         } else
           finishGame({
@@ -147,7 +147,7 @@ const Table = () => {
   }, [deck]);
 
   return (
-    <section className={styles.table}>
+    <div className={styles.table}>
       {!isFinished && currentCard && (
         <>
           <div className={styles.table__column}>
@@ -177,7 +177,7 @@ const Table = () => {
           <div className={styles.played_cards} ref={playedCardsElement} />
         </>
       )}
-    </section>
+    </div>
   );
 };
 

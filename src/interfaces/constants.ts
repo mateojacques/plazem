@@ -8,6 +8,7 @@ export interface IThemeCards {
   classic: ICard[];
   coder: ICard[];
   futbol: ICard[];
+  neon: ICard[];
 }
 
 export type TColor = { var_name: string; code: string };
@@ -15,11 +16,13 @@ export interface IThemeColors {
   classic: TColor[];
   coder: TColor[];
   futbol: TColor[];
+  neon: TColor[];
 }
 export interface IThemeFonts {
   classic: string;
   coder: string;
   futbol: string;
+  neon: string;
 }
 export interface IKeysRows {
   q: number;
@@ -43,6 +46,10 @@ export interface ITranslation {
   defeat_timer_message: string;
   victory_timer_message: string;
   config_theme: string;
+  settings_language_label: string;
+  settings_card_quantity_label: string;
+  settings_theme_label: string;
+  settings_future_vision_label: string;
 }
 export interface ITranslations {
   en: ITranslation;

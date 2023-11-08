@@ -19,8 +19,9 @@ export interface ITableContext {
   stopInput: boolean;
   deathDeck: ICard[];
   translation: ITranslation;
-  selectedLanguage: string;
   currentView: string;
+  // TODO currentSettings interface
+  currentSettings: any;
   setDeck: Function;
   setRound: Function;
   saveBoard: Function;
@@ -36,6 +37,8 @@ export interface ITableContext {
   changeTheme: Function;
   setCurrentView: Function;
   setIsFinished(isFinished: boolean): void;
+  // TODO current settings interface
+  setCurrentSettings(currentSettings: any): void;
 }
 
 export interface ICardAmount {

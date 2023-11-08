@@ -25,7 +25,7 @@ const Board = () => {
   }, [currentBoard]);
 
   return (
-    <section
+    <div
       className={`${styles.board} board ${!isFinished && styles.show_bg}`}
       style={{ background: isFinished ? "none" : `url(${RUG_BACKGROUND})` }}
     >
@@ -47,7 +47,7 @@ const Board = () => {
       ) : (
         <EndgameScreen />
       )}
-    </section>
+    </div>
   );
 };
 

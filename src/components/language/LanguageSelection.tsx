@@ -7,12 +7,14 @@ import { LANGUAGES } from "../../utils/configuration";
 const LanguageSelection = () => {
   const [showTutorial, setShowTutorial] = useState(false);
   const {
-    selectedLanguage,
-    changeLanguage,
     setCurrentView,
     setIsFinished,
     restartGame,
+    currentSettings,
+    setCurrentSettings,
   } = useContext(TableContext);
+
+  const selectedLanguage = currentSettings.language;
 
   const handleStartTutorial = () => {
     restartGame(true);
@@ -20,6 +22,12 @@ const LanguageSelection = () => {
     setCurrentView("game");
     setShowTutorial(true);
   };
+
+  const changeLanguage = (code: string) =>
+    setCurrentSettings((previousValue: any) => ({
+      ...previousValue,
+      language: code,
+    }));
 
   useEffect(() => {
     setShowTutorial(!localStorage.getItem("hasCompletedTutorial"));

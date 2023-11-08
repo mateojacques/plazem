@@ -29,7 +29,7 @@
 }
 
 .muted_filter {
-  filter: grayscale(0.7);
+  filter: grayscale(1);
 }
 
 @media screen and (max-width: 1000px) {

@@ -6,6 +6,7 @@ import Header from "./components/header/Header";
 import { useContext, useEffect } from "react";
 import { TableContext } from "./contexts/tableContext";
 import GameView from "./views/GameView";
+import SettingsView from "./views/SettingsView";
 
 function App() {
   const { currentView, cardAmount, restartGame } = useContext(TableContext);
@@ -19,7 +20,7 @@ function App() {
       case "rankings":
         return <>Rankings</>;
       case "settings":
-        return <>Settings</>;
+        return <SettingsView />;
       default:
         return <></>;
     }
@@ -30,7 +31,11 @@ function App() {
       (result, value) => result || value > 0,
       false
     );
-    if (window.matchMedia("(min-height: 800px)").matches || gameStarted) {
+    if (
+      (window.matchMedia("(min-height: 1000px)").matches &&
+        currentView === "game") ||
+      gameStarted
+    ) {
       const scrollX = window.scrollX;
       const scrollY = window.scrollY;
       window.onscroll = function () {

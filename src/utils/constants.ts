@@ -6,6 +6,8 @@ import {
   CODER_THEME,
   FUTBOL_FONT,
   FUTBOL_THEME,
+  NEON_FONT,
+  NEON_THEME,
 } from "./themes";
 
 // CLASSIC CARDS
@@ -45,6 +47,19 @@ import racingCard from "../images/cards/futbol/racing_card.png";
 import riverCard from "../images/cards/futbol/river_card.png";
 import sanlorenzoCard from "../images/cards/futbol/sanlorenzo_card.png";
 import velezCard from "../images/cards/futbol/velez_card.png";
+
+// NEON CARDS
+import neonTurtleCard from "../images/cards/neon/turtle_card.png";
+import neonButterflyCard from "../images/cards/neon/butterfly_card.png";
+import neonLionCard from "../images/cards/neon/lion_card.png";
+import neonFoxCard from "../images/cards/neon/fox_card.png";
+import neonSpiderCard from "../images/cards/neon/spider_card.png";
+import neonGiraffeCard from "../images/cards/neon/giraffe_card.png";
+import neonParrotCard from "../images/cards/neon/parrot_card.png";
+import neonCrocodileCard from "../images/cards/neon/crocodile_card.png";
+import neonFlamingoCard from "../images/cards/neon/flamingo_card.png";
+import neonMonkeyCard from "../images/cards/neon/monkey_card.png";
+import neonDeathCardBoard from "../images/cards/neon/death_card_board.png";
 
 // INTERFACES
 import {
@@ -219,22 +234,78 @@ export const FUTBOL_CARDS: ICard[] = [
   },
 ];
 
+export const NEON_CARDS: ICard[] = [
+  {
+    id: 1,
+    name: "Neon Turtle",
+    image: neonTurtleCard,
+  },
+  {
+    id: 2,
+    name: "Neon Butterfly",
+    image: neonButterflyCard,
+  },
+  {
+    id: 3,
+    name: "Neon Lion",
+    image: neonLionCard,
+  },
+  {
+    id: 4,
+    name: "Neon Fox",
+    image: neonFoxCard,
+  },
+  {
+    id: 5,
+    name: "Neon Spider",
+    image: neonSpiderCard,
+  },
+  {
+    id: 6,
+    name: "Neon Giraffe",
+    image: neonGiraffeCard,
+  },
+  {
+    id: 7,
+    name: "Neon Parrot",
+    image: neonParrotCard,
+  },
+  {
+    id: 8,
+    name: "Neon Crocodile",
+    image: neonCrocodileCard,
+  },
+  {
+    id: 9,
+    name: "Neon Flamingo",
+    image: neonFlamingoCard,
+  },
+  {
+    id: 10,
+    name: "Neon Monkey",
+    image: neonMonkeyCard,
+  },
+];
+
 export const THEMES_CARDS: IThemeCards = {
   classic: CLASSIC_CARDS,
   coder: CODER_CARDS,
   futbol: FUTBOL_CARDS,
+  neon: NEON_CARDS,
 };
 
 export const THEMES_COLORS: IThemeColors = {
   classic: CLASSIC_THEME,
   coder: CODER_THEME,
   futbol: FUTBOL_THEME,
+  neon: NEON_THEME,
 };
 
 export const THEMES_FONTS: IThemeFonts = {
   classic: CLASSIC_FONT,
   coder: CODER_FONT,
   futbol: FUTBOL_FONT,
+  neon: NEON_FONT,
 };
 
 export const DEATH_CARD_BOARD = {
@@ -282,6 +353,10 @@ export const ENGLISH_TRANSLATION: ITranslation = {
   defeat_timer_message: "Your run lasted...",
   victory_timer_message: "You achieved it in...",
   config_theme: "Change theme",
+  settings_language_label: "language",
+  settings_card_quantity_label: "card quantity",
+  settings_theme_label: "theme",
+  settings_future_vision_label: "future vision",
 };
 
 export const SPANISH_TRANSLATION: ITranslation = {
@@ -289,9 +364,7 @@ export const SPANISH_TRANSLATION: ITranslation = {
     "Bienvenido a Plazem! Este es un juego enfocado en la velocidad y los reflejos.",
   tutorial_step2:
     "Este es el tablero. Tendrás que colocar las cartas de tu mazo coincidiendo con las de las columnas, presionando la tecla asignada a cada una.",
-  tutorial_step3: `Este es tu mazo. En él hay ${CARD_AMOUNT} cartas, ${
-    CARD_AMOUNT / 10
-  } por cada tipo. Deberás colocar las cartas que se encuentren en el tablero y descartar las que no.`,
+  tutorial_step3: `Este es tu mazo. Deberás colocar en el tablero las cartas que sean iguales, y descartar las que no se encuentren.`,
   tutorial_step4:
     "La meta es colocar todas las cartas sin errores en el menor tiempo posible.",
   tutorial_skip: "Saltar tutorial",
@@ -305,6 +378,10 @@ export const SPANISH_TRANSLATION: ITranslation = {
   defeat_timer_message: "Tu intento duró...",
   victory_timer_message: "Lo conseguiste en...",
   config_theme: "Cambiar tema",
+  settings_language_label: "lenguaje",
+  settings_card_quantity_label: "cantidad de cartas",
+  settings_theme_label: "tema",
+  settings_future_vision_label: "visión futura",
 };
 
 export const TRANSLATIONS: ITranslations = {

@@ -61,10 +61,6 @@ const SettingsView = () => {
           label: "futbol",
           value: "futbol",
         },
-        {
-          label: "coder",
-          value: "coder",
-        },
       ],
     },
     /* {

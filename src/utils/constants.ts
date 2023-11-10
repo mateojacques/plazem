@@ -2,8 +2,6 @@
 import {
   CLASSIC_FONT,
   CLASSIC_THEME,
-  CODER_FONT,
-  CODER_THEME,
   FUTBOL_FONT,
   FUTBOL_THEME,
   NEON_FONT,
@@ -23,18 +21,6 @@ import flamingoCard from "../images/cards/classic/flamingo_card.png";
 import monkeyCard from "../images/cards/classic/monkey_card.png";
 import deathCardBoard from "../images/cards/classic/death_card_board.png";
 import deathCardZone from "../images/cards/classic/death_card_zone.png";
-
-// CODER CARDS
-import perlCard from "../images/cards/coder/perl_card.png";
-import cppCard from "../images/cards/coder/c++_card.png";
-import javaCard from "../images/cards/coder/java_card.png";
-import rubyCard from "../images/cards/coder/ruby_card.png";
-import csharpCard from "../images/cards/coder/csharp_card.png";
-import javascriptCard from "../images/cards/coder/javascript_card.png";
-import goCard from "../images/cards/coder/go_card.png";
-import pythonCard from "../images/cards/coder/python_card.png";
-import kotlinCard from "../images/cards/coder/kotlin_card.png";
-import rustCard from "../images/cards/coder/rust_card.png";
 
 // FUTBOL CARDS
 import banfieldCard from "../images/cards/futbol/banfield_card.png";
@@ -64,7 +50,6 @@ import neonMonkeyCard from "../images/cards/neon/monkey_card.png";
 import plazem_logo_classic from "../images/brand/plazem_logo_classic.png";
 import plazem_logo_neon from "../images/brand/plazem_logo_neon.png";
 import plazem_logo_futbol from "../images/brand/plazem_logo_futbol.png";
-import plazem_logo_coder from "../images/brand/plazem_logo_coder.png";
 
 // INTERFACES
 import {
@@ -130,59 +115,6 @@ export const CLASSIC_CARDS: ICard[] = [
     id: 10,
     name: "Monkey",
     image: monkeyCard,
-  },
-];
-
-export const CODER_CARDS: ICard[] = [
-  {
-    id: 1,
-    name: "Perl",
-    image: perlCard,
-  },
-  {
-    id: 2,
-    name: "C++",
-    image: cppCard,
-  },
-  {
-    id: 3,
-    name: "Java",
-    image: javaCard,
-  },
-  {
-    id: 4,
-    name: "Ruby",
-    image: rubyCard,
-  },
-  {
-    id: 5,
-    name: "C#",
-    image: csharpCard,
-  },
-  {
-    id: 6,
-    name: "Javascript",
-    image: javascriptCard,
-  },
-  {
-    id: 7,
-    name: "Go",
-    image: goCard,
-  },
-  {
-    id: 8,
-    name: "Python",
-    image: pythonCard,
-  },
-  {
-    id: 9,
-    name: "Kotlin",
-    image: kotlinCard,
-  },
-  {
-    id: 10,
-    name: "Rust",
-    image: rustCard,
   },
 ];
 
@@ -294,21 +226,18 @@ export const NEON_CARDS: ICard[] = [
 
 export const THEMES_CARDS: IThemeCards = {
   classic: CLASSIC_CARDS,
-  coder: CODER_CARDS,
   futbol: FUTBOL_CARDS,
   neon: NEON_CARDS,
 };
 
 export const THEMES_COLORS: IThemeColors = {
   classic: CLASSIC_THEME,
-  coder: CODER_THEME,
   futbol: FUTBOL_THEME,
   neon: NEON_THEME,
 };
 
 export const THEMES_FONTS: IThemeFonts = {
   classic: CLASSIC_FONT,
-  coder: CODER_FONT,
   futbol: FUTBOL_FONT,
   neon: NEON_FONT,
 };
@@ -317,7 +246,6 @@ export const LOGOS: { [key: string]: string } = {
   classic: plazem_logo_classic,
   neon: plazem_logo_neon,
   futbol: plazem_logo_futbol,
-  coder: plazem_logo_coder,
 };
 
 export const DEATH_CARD_BOARD = {

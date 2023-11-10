@@ -6,7 +6,6 @@ export interface ICard {
 }
 export interface IThemeCards {
   classic: ICard[];
-  coder: ICard[];
   futbol: ICard[];
   neon: ICard[];
 }
@@ -14,13 +13,11 @@ export interface IThemeCards {
 export type TColor = { var_name: string; code: string };
 export interface IThemeColors {
   classic: TColor[];
-  coder: TColor[];
   futbol: TColor[];
   neon: TColor[];
 }
 export interface IThemeFonts {
   classic: string;
-  coder: string;
   futbol: string;
   neon: string;
 }

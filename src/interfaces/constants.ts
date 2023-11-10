@@ -48,6 +48,7 @@ export interface ITranslation {
   settings_card_quantity_label: string;
   settings_theme_label: string;
   settings_future_vision_label: string;
+  best_time_label: string;
 }
 export interface ITranslations {
   [key: string]: ITranslation;

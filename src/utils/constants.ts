@@ -297,6 +297,7 @@ export const ENGLISH_TRANSLATION: ITranslation = {
   settings_card_quantity_label: "card quantity",
   settings_theme_label: "theme",
   settings_future_vision_label: "future vision",
+  best_time_label: "best time",
 };
 
 export const SPANISH_TRANSLATION: ITranslation = {
@@ -322,6 +323,7 @@ export const SPANISH_TRANSLATION: ITranslation = {
   settings_card_quantity_label: "cantidad de cartas",
   settings_theme_label: "tema",
   settings_future_vision_label: "visión futura",
+  best_time_label: "mejor tiempo",
 };
 
 export const TRANSLATIONS: ITranslations = {

@@ -29,6 +29,7 @@ import {
 } from "../interfaces/tableContext";
 import styles from "../components/table/Table.module.css";
 import scoreStyles from "../components/score/Score.module.css";
+import { desparsearTiempo, menorTiempo } from "../utils/time";
 
 export const TableContext = createContext({} as ITableContext);
 
@@ -116,6 +117,9 @@ const TableProvider = ({ children }: any) => {
     return board[index].id === card.id;
   };
 
+  const saveBestTime = (body: any) =>
+    localStorage.setItem("bestTimes", JSON.stringify(body));
+
   const finishGame = ({
     reason,
     victory,
@@ -125,6 +129,25 @@ const TableProvider = ({ children }: any) => {
     setIsFinished(true);
     setEndMessages({ reason, victory, message, timer_message });
     timer.stop();
+
+    if (victory) {
+      const cardQuantity = currentSettings.card_quantity;
+      const bestTimes = localStorage.getItem("bestTimes");
+      if (bestTimes) {
+        const parsedBestTimes = JSON.parse(bestTimes);
+        if (parsedBestTimes[cardQuantity]) {
+          if (
+            desparsearTiempo(
+              menorTiempo([parsedBestTimes[cardQuantity], time])
+            ) === time
+          )
+            saveBestTime({ ...parsedBestTimes, [cardQuantity]: time });
+          return;
+        } else {
+          saveBestTime({ ...parsedBestTimes, [cardQuantity]: time });
+        }
+      } else saveBestTime({ [cardQuantity]: time });
+    }
   };
 
   const restartGame = (forceRestart?: boolean) => {

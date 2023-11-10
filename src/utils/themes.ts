@@ -1,6 +1,6 @@
 export const CLASSIC_THEME = [
-  { var_name: "--primary-color", code: "#BA8C47" },
-  { var_name: "--secondary-color", code: "#a18166" },
+  { var_name: "--primary-color", code: "#BA8C4770" },
+  { var_name: "--secondary-color", code: "#a181665" },
   { var_name: "--secondary-color-dark", code: "#61493670" },
   { var_name: "--bg-color", code: "#efcba1" },
   { var_name: "--text-color", code: "#111" },
@@ -13,7 +13,7 @@ export const CLASSIC_THEME = [
 export const CLASSIC_FONT = "Convergence";
 
 export const FUTBOL_THEME = [
-  { var_name: "--primary-color", code: "#ffffff70" },
+  { var_name: "--primary-color", code: "#ffffff30" },
   { var_name: "--secondary-color", code: "#47D796" },
   { var_name: "--secondary-color-dark", code: "#ffffff70" },
   { var_name: "--bg-color", code: "#082116" },

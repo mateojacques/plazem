@@ -38,7 +38,7 @@ const Board = () => {
             <img
               src={image}
               alt={name}
-              className={styles.board__card}
+              className={`card ${styles.board__card}`}
               ref={cardRefs[i]}
               onClick={() => onClickBoardKey(KEYS[i])}
             />

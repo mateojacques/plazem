@@ -62,6 +62,7 @@ const Table = () => {
 
       // Clone main deck card
       const cardClone = cardElement.current.cloneNode();
+      cardClone.classList.add("card");
       cardClone.classList.add(styles.played_card);
       cardClone.classList.remove(styles.card_move_down);
 
@@ -158,7 +159,7 @@ const Table = () => {
           <img
             src={currentCard.image}
             alt={currentCard.name}
-            className={`${styles.mainDeck__card} deck`}
+            className={`card ${styles.mainDeck__card} deck`}
             ref={cardElement}
           />
           <div className={styles.table__column}>
@@ -169,7 +170,7 @@ const Table = () => {
               key={deadCardKeyId || DEATH_CARD_ZONE.name}
               src={deadCardImage || DEATH_CARD_ZONE.image}
               alt={deadCardName || DEATH_CARD_ZONE.name}
-              className={styles.mainDeck__dead_card}
+              className={`card ${styles.mainDeck__dead_card}`}
               onClick={() => onClickBoardKey("f")}
             />
           </div>

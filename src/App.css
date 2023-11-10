@@ -59,6 +59,15 @@ button {
   margin: auto;
 }
 
+.card {
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
 .key {
   width: var(--key-size);
   height: var(--key-size);
@@ -72,6 +81,10 @@ button {
   cursor: pointer;
   text-transform: uppercase;
   border: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .key:active {

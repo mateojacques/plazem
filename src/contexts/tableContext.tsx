@@ -150,7 +150,8 @@ const TableProvider = ({ children }: any) => {
     }
   };
 
-  const restartGame = (forceRestart?: boolean) => {
+  const restartGame = (forceRestart?: boolean, ignore?: boolean) => {
+    if (ignore) return;
     const playedCards = document.querySelectorAll(`.${styles.played_card}`);
     const playedCardsArray = Array.from(playedCards);
     if (playedCardsArray.length > 0 || forceRestart) {

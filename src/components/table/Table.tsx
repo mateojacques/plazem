@@ -135,7 +135,7 @@ const Table = () => {
     }
   };
 
-  const onResize = () => restartGame();
+  const onResize = () => restartGame(false, true);
 
   useEffect(() => {
     document.addEventListener("keydown", onKeyPress);

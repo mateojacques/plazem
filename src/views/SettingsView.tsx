@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { TableContext } from "../contexts/tableContext";
 import styles from "./Views.module.css";
+import { LANGUAGES } from "../utils/configuration";
 
 const SettingsView = () => {
   const { currentSettings, setCurrentSettings, translation } =
@@ -16,16 +17,10 @@ const SettingsView = () => {
     {
       id: "language",
       label: translation.settings_language_label,
-      options: [
-        {
-          label: "english",
-          value: "en",
-        },
-        {
-          label: "español",
-          value: "es",
-        },
-      ],
+      options: LANGUAGES.map(({ name, code }) => ({
+        label: name.toLowerCase(),
+        value: code,
+      })),
     },
     {
       id: "card_quantity",

@@ -54,4 +54,5 @@ export interface ITranslations {
   [key: string]: ITranslation;
   en: ITranslation;
   es: ITranslation;
+  pt: ITranslation;
 }

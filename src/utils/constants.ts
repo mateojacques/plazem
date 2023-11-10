@@ -326,9 +326,37 @@ export const SPANISH_TRANSLATION: ITranslation = {
   best_time_label: "mejor tiempo",
 };
 
+export const PORTUGUESE_TRANSLATION: ITranslation = {
+  tutorial_step1:
+    "Bem-vindo ao Plazem! Este é um jogo focado em velocidade e reflexos.",
+  tutorial_step2:
+    "Este é o tabuleiro. Você terá que colocar as cartas em seu baralho correspondendo às que estão nas colunas, pressionando a tecla que corresponde a cada uma.",
+  tutorial_step3:
+    "Este é o seu baralho. Há 50 cartas nele, 5 de cada tipo. Você terá que colocar as cartas que estão no tabuleiro de acordo e descartar (tecla F) as que não estão.",
+  tutorial_step4:
+    "O objetivo é colocar todas as 50 cartas sem erros no menor tempo possível.",
+  tutorial_skip: "Pular tutorial",
+  tutorial_end: "Encerrar tutorial",
+  tutorial_back: "Voltar",
+  tutorial_next: "Próximo",
+  invalid_movement: "Movimento inválido. Tente novamente!",
+  discarded_card_in_board:
+    "A carta que você descartou estava no tabuleiro. Tente novamente!",
+  victory: "Parabéns! Não há mais cartas em seu baralho.",
+  defeat_timer_message: "Sua jogada durou...",
+  victory_timer_message: "Você conseguiu em...",
+  config_theme: "Alterar tema",
+  settings_language_label: "idioma",
+  settings_card_quantity_label: "quantidade de cartas",
+  settings_theme_label: "tema",
+  settings_future_vision_label: "visão futura",
+  best_time_label: "melhor tempo",
+};
+
 export const TRANSLATIONS: ITranslations = {
   en: ENGLISH_TRANSLATION,
   es: SPANISH_TRANSLATION,
+  pt: PORTUGUESE_TRANSLATION
 };
 
 export const STOP_INPUT_DELAY_AFTER_END_GAME = 100;

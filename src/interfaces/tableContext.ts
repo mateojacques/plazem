@@ -1,6 +1,9 @@
 import { ICard, ITranslation } from "./constants";
 
 export type TEndMessages = {
+  [key: string]: string|boolean;
+  reason: string;
+  victory: boolean;
   message: string;
   timer_message: string;
 };

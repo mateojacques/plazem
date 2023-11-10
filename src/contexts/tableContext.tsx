@@ -63,6 +63,8 @@ const TableProvider = ({ children }: any) => {
   const [refs, setRefs] = useState<any[]>([]);
   const [isFinished, setIsFinished] = useState<boolean>(false);
   const [endMessages, setEndMessages] = useState<TEndMessages>({
+    reason: "",
+    victory: false,
     message: "",
     timer_message: "",
   });
@@ -84,8 +86,7 @@ const TableProvider = ({ children }: any) => {
   const generateMainDeck = () => {
     const accumulatedDeck = Array.from(
       {
-        length:
-          (currentSettings?.card_quantity || CARD_AMOUNT) / 10,
+        length: (currentSettings?.card_quantity || CARD_AMOUNT) / 10,
       },
       () => THEMES_CARDS[defaultTheme as keyof IThemeCards]
     ).flat();
@@ -115,9 +116,14 @@ const TableProvider = ({ children }: any) => {
     return board[index].id === card.id;
   };
 
-  const finishGame = ({ message, timer_message }: TEndMessages) => {
+  const finishGame = ({
+    reason,
+    victory,
+    message,
+    timer_message,
+  }: TEndMessages) => {
     setIsFinished(true);
-    setEndMessages({ message, timer_message });
+    setEndMessages({ reason, victory, message, timer_message });
     timer.stop();
   };
 
@@ -135,7 +141,12 @@ const TableProvider = ({ children }: any) => {
       setDeck(generateMainDeck());
       setTime(TIME_INITIAL_STATE);
       setDeathDeck([]);
-      setEndMessages({ message: "", timer_message: "" });
+      setEndMessages({
+        reason: "",
+        victory: false,
+        message: "",
+        timer_message: "",
+      });
       setStopInput(true);
       setTimeout(() => setStopInput(false), STOP_INPUT_DELAY_AFTER_END_GAME);
     }
@@ -193,8 +204,18 @@ const TableProvider = ({ children }: any) => {
 
   const handleSettings = (currentSettings: ICurrentSettings) => {
     const { language, theme } = currentSettings;
+    const { reason: endGameReason, victory: endGameVictory } = endMessages;
 
-    changeLanguage(language as keyof ITranslations);
+    changeLanguage(language);
+    setEndMessages({
+      ...endMessages,
+      message: TRANSLATIONS[language][endGameReason],
+      timer_message:
+        TRANSLATIONS[language][
+          endGameVictory ? "victory_timer_message " : "defeat_timer_message"
+        ],
+    });
+
     changeTheme(theme);
   };
 

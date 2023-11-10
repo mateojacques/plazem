@@ -29,6 +29,7 @@ export interface IKeysRows {
   t: number;
 }
 export interface ITranslation {
+  [key: string]: string;
   tutorial_step1: string;
   tutorial_step2: string;
   tutorial_step3: string;
@@ -49,6 +50,7 @@ export interface ITranslation {
   settings_future_vision_label: string;
 }
 export interface ITranslations {
+  [key: string]: ITranslation;
   en: ITranslation;
   es: ITranslation;
 }

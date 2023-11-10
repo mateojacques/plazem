@@ -47,6 +47,8 @@ const Table = () => {
     if (isDiscarded) {
       if (isInBoard) {
         finishGame({
+          reason: "discarded_card_in_board",
+          victory: false,
           message: translation.discarded_card_in_board,
           timer_message: translation.defeat_timer_message,
         });
@@ -86,6 +88,8 @@ const Table = () => {
     }
     if (!isDiscarded && !validateCardRow(key, currentCard)) {
       finishGame({
+        reason: "invalid_movement",
+        victory: false,
         message: translation.invalid_movement,
         timer_message: translation.defeat_timer_message,
       });
@@ -124,6 +128,8 @@ const Table = () => {
           setCurrentCard(deck[round + 1]);
         } else
           finishGame({
+            reason: "victory",
+            victory: true,
             message: translation.victory,
             timer_message: translation.victory_timer_message,
           });

@@ -24,6 +24,7 @@
   transition: 0.3s ease;
   padding: .5rem;
   border-radius: 10px;
+  text-wrap: nowrap;
 }
 
 .score > h2:hover {

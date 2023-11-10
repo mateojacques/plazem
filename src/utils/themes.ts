@@ -14,13 +14,13 @@ export const CLASSIC_FONT = "Convergence";
 
 export const FUTBOL_THEME = [
   { var_name: "--primary-color", code: "#ffffff70" },
-  { var_name: "--secondary-color", code: "#22E000" },
+  { var_name: "--secondary-color", code: "#47D796" },
   { var_name: "--secondary-color-dark", code: "#ffffff70" },
-  { var_name: "--bg-color", code: "#0f452d" },
+  { var_name: "--bg-color", code: "#082116" },
   { var_name: "--text-color", code: "#fff" },
   { var_name: "--rug-primary", code: "#0f452d" },
   { var_name: "--rug-secondary", code: "#166441" },
-  { var_name: "--rug-border", code: "#166441" },
+  { var_name: "--rug-border", code: "#999999" },
   { var_name: "--muted", code: "#ffffff50" },
 ];
 

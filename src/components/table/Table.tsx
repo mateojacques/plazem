@@ -1,11 +1,7 @@
 import React, { useEffect, useContext, useState, useRef } from "react";
 import styles from "./Table.module.css";
 import { TableContext } from "../../contexts/tableContext";
-import {
-  DEATH_CARD_ZONE,
-  KEYS,
-  KEYS_ROWS,
-} from "../../utils/constants";
+import { DEATH_CARD_ZONE, KEYS, KEYS_ROWS } from "../../utils/constants";
 import { ICardAmount } from "../../interfaces/tableContext";
 import { ICurrentCard } from "../../interfaces/table";
 import { IKeysRows } from "../../interfaces/constants";
@@ -28,7 +24,7 @@ const Table = () => {
     onClickBoardKey,
     translation,
     stopInput,
-    currentSettings
+    currentSettings,
   } = useContext(TableContext);
   const [currentCard, setCurrentCard] = useState<ICurrentCard>(deck[0]);
   const cardElement = useRef(null as any);
@@ -52,7 +48,7 @@ const Table = () => {
           message: translation.discarded_card_in_board,
           timer_message: translation.defeat_timer_message,
         });
-        return;
+        return false;
       } else {
         cardElement.current.classList.add(styles.card_move_right);
         killCard(currentCard);
@@ -93,7 +89,7 @@ const Table = () => {
         message: translation.invalid_movement,
         timer_message: translation.defeat_timer_message,
       });
-      return;
+      return false;
     }
 
     setTimeout(() => {
@@ -102,6 +98,8 @@ const Table = () => {
         cardElement.current.classList.remove(styles.card_move_right);
       }
     }, 100);
+
+    return true;
   };
 
   const onKeyPress = ({
@@ -122,11 +120,11 @@ const Table = () => {
 
       if (!isFinished) {
         setRound(round + 1);
-        cardTransition(key.toLowerCase());
+        const victory = cardTransition(key.toLowerCase());
 
         if (round < currentSettings.card_quantity - 1) {
           setCurrentCard(deck[round + 1]);
-        } else
+        } else if (victory)
           finishGame({
             reason: "victory",
             victory: true,

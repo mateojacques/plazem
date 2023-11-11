@@ -10,6 +10,7 @@ const EndgameScreen = () => {
     useContext(TableContext);
   const rawBestTimes = localStorage.getItem("bestTimes");
   const cardQuantity = currentSettings.card_quantity;
+  const isVictory = endMessages.victory;
 
   useEffect(() => {
     if (rawBestTimes) {
@@ -21,7 +22,7 @@ const EndgameScreen = () => {
   useEffect(() => {
     if (bestTimes) {
       if (
-        endMessages.victory &&
+        isVictory &&
         desparsearTiempo(menorTiempo([bestTimes[cardQuantity], time])) === time
       )
         setIsBestTime(true);
@@ -35,7 +36,7 @@ const EndgameScreen = () => {
       <div>
         <p className={styles.timer_message}>{endMessages?.timer_message}</p>
         <p className={styles.time}>{time}</p>
-        {(!bestTimes || isBestTime) && (
+        {((isVictory && !bestTimes) || isBestTime) && (
           <p className={styles.new_record_legend}>
             {translation.new_record_legend}
           </p>

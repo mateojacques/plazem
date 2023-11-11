@@ -298,6 +298,7 @@ export const ENGLISH_TRANSLATION: ITranslation = {
   settings_theme_label: "theme",
   settings_future_vision_label: "future vision",
   best_time_label: "best time",
+  new_record_legend: "New record!",
 };
 
 export const SPANISH_TRANSLATION: ITranslation = {
@@ -324,6 +325,7 @@ export const SPANISH_TRANSLATION: ITranslation = {
   settings_theme_label: "tema",
   settings_future_vision_label: "visión futura",
   best_time_label: "mejor tiempo",
+  new_record_legend: "Nuevo record!",
 };
 
 export const PORTUGUESE_TRANSLATION: ITranslation = {
@@ -351,12 +353,13 @@ export const PORTUGUESE_TRANSLATION: ITranslation = {
   settings_theme_label: "tema",
   settings_future_vision_label: "visão futura",
   best_time_label: "melhor tempo",
+  new_record_legend: "Novo recorde!",
 };
 
 export const TRANSLATIONS: ITranslations = {
   en: ENGLISH_TRANSLATION,
   es: SPANISH_TRANSLATION,
-  pt: PORTUGUESE_TRANSLATION
+  pt: PORTUGUESE_TRANSLATION,
 };
 
 export const STOP_INPUT_DELAY_AFTER_END_GAME = 100;

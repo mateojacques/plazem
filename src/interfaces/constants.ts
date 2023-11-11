@@ -49,6 +49,7 @@ export interface ITranslation {
   settings_theme_label: string;
   settings_future_vision_label: string;
   best_time_label: string;
+  new_record_legend: string;
 }
 export interface ITranslations {
   [key: string]: ITranslation;

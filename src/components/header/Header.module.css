@@ -45,6 +45,10 @@
   color: var(--muted);
 }
 
+.header.hideScore > *:nth-child(2) {
+  opacity: 0;
+}
+
 @keyframes selectMenuItemAnimation {
   0% {
     opacity: 1;

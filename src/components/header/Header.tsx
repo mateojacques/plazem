@@ -9,9 +9,13 @@ const Header = () => {
   const { currentSettings, currentView } = useContext(TableContext);
 
   return (
-    <header className={styles.header}>
+    <header
+      className={`${styles.header} ${
+        currentView !== "game" ? styles.hideScore : ""
+      }`}
+    >
       <img src={LOGOS[currentSettings.theme]} alt="Plazem logo" />
-      {currentView === "game" && <Score />}
+      <Score />
       <HeaderMenu />
     </header>
   );

@@ -63,6 +63,7 @@ const Table = () => {
       cardClone.classList.add("card");
       cardClone.classList.add(styles.played_card);
       cardClone.classList.remove(styles.card_move_down);
+      cardClone.classList.remove("deck");
 
       const index = KEYS_ROWS[key as keyof IKeysRows] - 1;
 

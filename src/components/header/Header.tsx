@@ -6,12 +6,12 @@ import { TableContext } from "../../contexts/tableContext";
 import { LOGOS } from "../../utils/constants";
 
 const Header = () => {
-  const { currentSettings } = useContext(TableContext);
+  const { currentSettings, currentView } = useContext(TableContext);
 
   return (
     <header className={styles.header}>
       <img src={LOGOS[currentSettings.theme]} alt="Plazem logo" />
-      <Score />
+      {currentView === "game" && <Score />}
       <HeaderMenu />
     </header>
   );

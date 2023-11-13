@@ -297,7 +297,7 @@ export const ENGLISH_TRANSLATION: ITranslation = {
   settings_card_quantity_label: "card quantity",
   settings_theme_label: "theme",
   settings_future_vision_label: "future vision",
-  best_time_label: "best time",
+  best_time_label: "Best time",
   new_record_legend: "New record!",
 };
 
@@ -324,7 +324,7 @@ export const SPANISH_TRANSLATION: ITranslation = {
   settings_card_quantity_label: "cantidad de cartas",
   settings_theme_label: "tema",
   settings_future_vision_label: "visión futura",
-  best_time_label: "mejor tiempo",
+  best_time_label: "Mejor tiempo",
   new_record_legend: "Nuevo record!",
 };
 
@@ -352,7 +352,7 @@ export const PORTUGUESE_TRANSLATION: ITranslation = {
   settings_card_quantity_label: "quantidade de cartas",
   settings_theme_label: "tema",
   settings_future_vision_label: "visão futura",
-  best_time_label: "melhor tempo",
+  best_time_label: "Melhor tempo",
   new_record_legend: "Novo recorde!",
 };
 
